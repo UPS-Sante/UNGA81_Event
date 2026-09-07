@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#182462">
+<title>La foi en action · Préparation · 23 septembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --encre:#182462; --or:#FFC400; --rouge:#C60C30; --orange:#DD7E22;
+  --papier:#F4F5F8; --blanc:#fff; --texte:#212636; --gris:#5A6178; --trait:#D8DCE6; --vert:#1D6B4F;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papier);color:var(--texte);font-family:var(--sans);font-size:16px;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:var(--encre)}
+button{font:inherit}
+
+.bandeau{background:var(--encre);color:#fff;border-bottom:3px solid var(--or)}
+.bandeau .wrap{display:flex;align-items:center;gap:14px;padding:12px 20px;flex-wrap:wrap}
+.sceau{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--or);flex:0 0 34px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;color:var(--or);font-size:13px}
+.bandeau b{display:block;font-weight:600;letter-spacing:.02em}
+.bandeau span{display:block;font-size:13px;color:#C6CDE4}
+.bandeau .droite{margin-left:auto;font-size:12px;color:#9EA9CC}
+
+.ouverture{background:var(--blanc);border-bottom:1px solid var(--trait)}
+.ouverture .wrap{padding:30px 20px 26px}
+.surtitre{font-size:13px;color:var(--gris)}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:6px 0 10px;color:var(--encre)}
+.chapo{max-width:62ch;color:var(--gris);margin:0 0 22px}
+.coordonnees{display:flex;flex-wrap:wrap;border:1px solid var(--trait);border-radius:3px;overflow:hidden}
+.coordonnees div{flex:1 1 170px;padding:12px 14px;border-right:1px solid var(--trait);background:#fbfcfe}
+.coordonnees div:last-child{border-right:0}
+.coordonnees dt{font-size:12px;color:var(--gris);margin:0 0 3px}
+.coordonnees dd{margin:0;font-weight:600;font-size:15px;color:var(--encre)}
+.compte{display:flex;align-items:baseline;gap:14px;margin-top:24px;padding-top:18px;border-top:2px solid var(--or)}
+.compte strong{font-family:var(--serif);font-size:clamp(40px,8vw,64px);line-height:.9;color:var(--encre);font-weight:700}
+.compte p{margin:0;color:var(--gris);max-width:44ch}
+
+.alerte{border-left:4px solid var(--rouge);background:#fdf1f3;padding:12px 16px;margin-top:22px;border-radius:0 3px 3px 0}
+.alerte h3{margin:0 0 6px;font-size:15px;color:var(--rouge)}
+.alerte ul{margin:0;padding-left:18px}
+.alerte li{margin:4px 0}
+.note{border-left:4px solid var(--or);background:#fffaea;padding:12px 16px;border-radius:0 3px 3px 0;margin:0 0 18px}
+.note h3{margin:0 0 6px;font-size:15px;color:#8a6400}
+.note p{margin:0 0 6px;max-width:70ch}
+.note p:last-child{margin-bottom:0}
+
+.onglets{position:sticky;top:0;z-index:40;background:var(--blanc);border-bottom:1px solid var(--trait)}
+.onglets .wrap{display:flex;gap:2px;overflow-x:auto;padding:0 12px}
+.onglets button{border:0;background:none;padding:14px 12px 11px;color:var(--gris);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;font-size:15px}
+.onglets button[aria-selected="true"]{color:var(--encre);font-weight:600;border-bottom-color:var(--or)}
+.onglets button:focus-visible{outline:2px solid var(--encre);outline-offset:-2px}
+.pastille-onglet{display:inline-block;margin-left:6px;font-size:12px;color:var(--gris);font-weight:400}
+
+main{padding:34px 0 60px}
+section[hidden]{display:none}
+h2{font-family:var(--serif);font-size:26px;color:var(--encre);margin:38px 0 6px;font-weight:700}
+h2:first-of-type{margin-top:0}
+.intro{color:var(--gris);max-width:68ch;margin:0 0 18px}
+
+.murs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mur{background:var(--blanc);border:1px solid var(--trait);border-top:4px solid var(--rouge);padding:15px;cursor:pointer;text-align:left;border-radius:2px;display:flex;flex-direction:column;gap:8px}
+.mur:hover{border-color:var(--encre)}
+.mur:focus-visible{outline:2px solid var(--encre);outline-offset:2px}
+.mur h3{margin:0;font-size:17px;color:var(--encre);font-family:var(--serif)}
+.mur p{margin:0;font-size:14px;color:var(--gris)}
+.mur .etat{margin-top:auto;font-size:13px;font-weight:600;color:var(--rouge)}
+.mur.fait{border-top-color:var(--vert);background:#f4faf7}
+.mur.fait .etat{color:var(--vert)}
+.mur.fait h3::after{content:" ✓";color:var(--vert)}
+
+.trois{background:var(--blanc);border:1px solid var(--trait);border-left:4px solid var(--encre);border-radius:2px;padding:4px 0}
+.trois .ligne{border-bottom:1px solid #EEF0F6}
+.trois .ligne:last-child{border-bottom:0}
+
+.chrono{border-top:1px solid var(--trait)}
+.jalon{display:grid;grid-template-columns:154px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--trait)}
+.jalon .quand{font-weight:600;color:var(--encre);font-size:14px}
+.jalon .quand em{display:block;font-style:normal;font-weight:400;color:var(--gris);font-size:13px}
+.jalon ul{margin:0;padding-left:17px}
+.jalon li{margin:2px 0}
+.jalon.passe{background:#fdf1f3}
+.jalon.aujourdhui{background:#fffaea;border-left:4px solid var(--or);padding-left:12px;margin-left:-16px}
+@media(max-width:620px){.jalon{grid-template-columns:1fr;gap:4px}}
+
+.rubrique{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;margin-bottom:14px;overflow:hidden}
+.rubrique > header{display:flex;align-items:center;gap:10px;padding:13px 16px;background:#fbfcfe;border-bottom:1px solid var(--trait);flex-wrap:wrap}
+.rubrique > header h3{margin:0;font-size:17px;color:var(--encre);font-family:var(--serif)}
+.rubrique > header .porteur{font-size:13px;color:var(--gris)}
+.avancement{margin-left:auto;font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
+.jauge{height:4px;background:var(--trait);border-radius:2px;width:70px;overflow:hidden}
+.jauge i{display:block;height:100%;background:var(--or)}
+.ligne{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:1px solid #EEF0F6}
+.ligne:last-child{border-bottom:0}
+.ligne.sous{padding-left:44px;background:#fcfcfe}
+.ligne.faite .titre{color:var(--gris);text-decoration:line-through;text-decoration-color:var(--trait)}
+.case{flex:0 0 20px;width:20px;height:20px;margin-top:2px;border:1.5px solid var(--encre);border-radius:2px;background:#fff;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;color:transparent}
+.case[aria-pressed="true"]{background:var(--encre);color:#fff}
+.case:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.corps{flex:1 1 auto;min-width:0}
+.titre{display:block}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px;font-size:13px;color:var(--gris)}
+.echeance{border:1px solid var(--trait);border-radius:2px;padding:1px 7px;background:#fff}
+.echeance.retard{border-color:var(--rouge);color:var(--rouge);font-weight:600}
+.echeance.proche{border-color:var(--orange);color:#a4560d;font-weight:600}
+.pastille{border:1px dashed var(--trait);background:#fff;border-radius:20px;padding:1px 9px;cursor:pointer;color:var(--encre)}
+.pastille.vide{color:var(--gris);font-style:italic}
+.marque{font-size:12px;color:var(--orange)}
+.signature{font-size:12px;color:var(--gris)}
+.crayon{flex:0 0 auto;border:1px solid var(--trait);background:#fff;border-radius:2px;width:30px;height:30px;cursor:pointer;color:var(--gris)}
+.crayon:hover{border-color:var(--encre);color:var(--encre)}
+.ajout{padding:11px 16px;background:#fbfcfe;border-top:1px solid var(--trait)}
+.ajout button{border:1px dashed var(--trait);background:#fff;padding:7px 12px;border-radius:2px;color:var(--encre);cursor:pointer}
+.ajout button:hover{border-color:var(--encre)}
+
+.filtres{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.filtres button{border:1px solid var(--trait);background:#fff;border-radius:20px;padding:5px 13px;cursor:pointer;color:var(--gris);font-size:14px}
+.filtres button[aria-pressed="true"]{background:var(--encre);color:#fff;border-color:var(--encre)}
+
+.deroule{background:var(--blanc);border:1px solid var(--trait);border-radius:2px}
+.creneau{display:grid;grid-template-columns:78px 24px 1fr;gap:12px;padding:12px 16px;border-bottom:1px solid #EEF0F6;align-items:start}
+.creneau:last-child{border-bottom:0}
+.creneau .h{font-variant-numeric:tabular-nums;font-weight:600;color:var(--encre)}
+.creneau .qui{font-size:14px;color:var(--gris)}
+.creneau.faite .quoi{color:var(--gris);text-decoration:line-through;text-decoration-color:var(--trait)}
+.creneau.video{background:#fff8e6}
+
+.deuxcol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.deuxcol{grid-template-columns:1fr}}
+.liste{background:var(--blanc);border:1px solid var(--trait);border-radius:2px}
+.liste h3{margin:0;padding:12px 16px;font-size:16px;font-family:var(--serif);color:var(--encre);border-bottom:1px solid var(--trait);background:#fbfcfe}
+.liste .ligne{padding:9px 16px}
+.groupe{padding:10px 16px;border-bottom:1px solid #EEF0F6}
+.groupe:last-child{border-bottom:0}
+.groupe b{color:var(--encre);font-weight:600}
+.groupe p{margin:2px 0 0;font-size:14px;color:var(--gris)}
+.badge{display:inline-block;font-size:12px;border-radius:2px;padding:1px 6px;margin-top:5px}
+.badge.ok{background:#eaf5f0;color:var(--vert)}
+.badge.risque{background:#fdf1f3;color:var(--rouge)}
+
+.compteurs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:8px}
+.compteur{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;padding:13px 15px}
+.compteur label{font-size:13px;color:var(--gris);margin-bottom:6px}
+.compteur input{width:100%;border:0;border-bottom:2px solid var(--trait);padding:2px 0;font-family:var(--serif);font-size:28px;font-weight:700;color:var(--encre);background:none}
+.compteur input:focus{outline:0;border-bottom-color:var(--or)}
+.compteur small{display:block;color:var(--gris);font-size:12px;margin-top:5px}
+
+table.risques{width:100%;border-collapse:collapse;background:var(--blanc);border:1px solid var(--trait)}
+table.risques th{background:var(--encre);color:#fff;text-align:left;font-weight:600;font-size:14px;padding:9px 13px}
+table.risques td{padding:10px 13px;border-top:1px solid #EEF0F6;vertical-align:top;font-size:15px}
+table.risques td:first-child{font-weight:600;color:var(--encre);width:34%}
+@media(max-width:700px){table.risques,table.risques tbody,table.risques tr,table.risques td{display:block;width:100%}
+ table.risques thead{display:none}
+ table.risques tr{border-top:1px solid var(--trait)}
+ table.risques td:first-child{padding-bottom:2px}
+ table.risques td:last-child{padding-top:2px;color:var(--gris)}}
+
+.journal{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;max-height:520px;overflow:auto}
+.journal p{margin:0;padding:9px 16px;border-bottom:1px solid #EEF0F6;font-size:14px}
+.journal p:last-child{border-bottom:0}
+.journal time{color:var(--gris);font-variant-numeric:tabular-nums;margin-right:8px;font-size:13px}
+.journal .auteur{color:var(--encre);font-weight:600}
+.vide{padding:22px 16px;color:var(--gris)}
+
+.bloc{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;padding:18px;margin-bottom:14px}
+.bloc h3{margin:0 0 6px;font-size:17px;font-family:var(--serif);color:var(--encre)}
+.bloc p{margin:0 0 12px;color:var(--gris);max-width:70ch}
+.bloc p:last-child{margin-bottom:0}
+.bloc ul{margin:0 0 12px;padding-left:19px;color:var(--gris);max-width:70ch}
+.bloc li{margin:4px 0}
+.source{font-size:13px;color:var(--gris);border-left:3px solid var(--trait);padding:4px 10px;margin-top:10px}
+label{display:block;font-size:14px;color:var(--gris);margin-bottom:4px}
+input[type=text],input[type=date],input[type=url],input[type=number],select,textarea{width:100%;padding:9px 11px;border:1px solid var(--trait);border-radius:2px;font:inherit;background:#fff;color:var(--texte)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--encre);outline-offset:-1px}
+.champs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:620px){.champs{grid-template-columns:1fr}}
+.bouton{background:var(--encre);color:#fff;border:0;padding:9px 16px;border-radius:2px;cursor:pointer}
+.bouton:hover{background:#101a4a}
+.bouton.secondaire{background:#fff;color:var(--encre);border:1px solid var(--trait)}
+.bouton.secondaire:hover{border-color:var(--encre)}
+.bouton.danger{background:#fff;color:var(--rouge);border:1px solid #f0c3cc}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+ol.mode{padding-left:20px;color:var(--gris);max-width:70ch}
+ol.mode li{margin:5px 0}
+code{background:var(--papier);padding:1px 5px;border-radius:2px;font-size:14px}
+pre{background:#0f1730;color:#dfe5f7;padding:14px;border-radius:2px;overflow:auto;font-size:13px;line-height:1.45}
+.etat-sync{font-size:13px;color:var(--gris);margin-top:8px}
+.etat-sync.ok{color:var(--vert)}
+.etat-sync.ko{color:var(--rouge)}
+
+footer{border-top:1px solid var(--trait);background:var(--blanc);padding:20px 0 40px;color:var(--gris);font-size:14px}
+footer .wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+dialog{border:0;border-radius:3px;padding:0;max-width:460px;width:calc(100% - 32px);box-shadow:0 18px 50px rgba(16,26,74,.28)}
+dialog::backdrop{background:rgba(16,26,74,.4)}
+dialog .tete{padding:16px 18px 0}
+dialog h3{margin:0 0 4px;font-family:var(--serif);color:var(--encre);font-size:19px}
+dialog .contenu{padding:14px 18px 18px}
+dialog .pied{display:flex;gap:8px;justify-content:flex-end;padding:0 18px 18px;flex-wrap:wrap}
+.rappel{font-size:13px;color:var(--gris);border-left:3px solid var(--trait);padding:6px 10px;margin:10px 0}
+.gens{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.gens button{border:1px solid var(--trait);background:#fff;border-radius:20px;padding:5px 12px;cursor:pointer;color:var(--encre)}
+.gens button:hover{border-color:var(--encre)}
+.gens button.actif{background:var(--encre);color:#fff;border-color:var(--encre)}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--encre);color:#fff;padding:11px 16px;border-radius:3px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px rgba(16,26,74,.3);z-index:80;max-width:calc(100% - 32px)}
+#toast[hidden]{display:none}
+#toast button{background:none;border:0;color:var(--or);cursor:pointer;text-decoration:underline}
+@media (prefers-reduced-motion:no-preference){#toast{animation:monte .18s ease-out}}
+@keyframes monte{from{transform:translate(-50%,10px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+
+@media print{
+  .onglets,.ajout,.crayon,.filtres,#toast,footer,.actions{display:none !important}
+  section[hidden]{display:block !important}
+  body{background:#fff;font-size:12px}
+  .rubrique,.liste,.deroule,.bloc{break-inside:avoid;border-color:#999}
+  h2{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="bandeau">
+  <div class="wrap">
+    <div class="sceau">TD</div>
+    <div>
+      <b>République du Tchad</b>
+      <span>Ministère de la Santé Publique et de la Prévention · Direction de la Santé de la Reproduction</span>
+    </div>
+    <div class="droite">Site de préparation de l'événement · version 2</div>
+  </div>
+</div>
+
+<div class="ouverture">
+  <div class="wrap">
+    <p class="surtitre">Événement parallèle de haut niveau · 81<sup>e</sup> Assemblée Générale des Nations Unies</p>
+    <h1>La foi en action</h1>
+    <p class="chapo">Femmes prédicatrices, santé de la reproduction et atteinte des ODD au Tchad et au Sahel. Dialogue de haut niveau organisé par le MSPP avec le CNAIT, la Ligue des Femmes Prédicatrices et l'UNFPA, sous le Haut Patronage du Ministre de la Santé Publique et de la Prévention.</p>
+
+    <dl class="coordonnees">
+      <div><dt>Quand</dt><dd>Mardi 23 septembre 2026<br>13 h 15 à 14 h 45 (New York)</dd></div>
+      <div><dt>Où</dt><dd>Siège des Nations Unies<br>Salle à confirmer</dd></div>
+      <div><dt>Responsable et modératrice</dt><dd>Directrice de la Santé de la Reproduction</dd></div>
+      <div><dt>Confirmations</dt><dd><a href="mailto:unga81.tchad@sante.gov.td">unga81.tchad@sante.gov.td</a></dd></div>
+    </dl>
+
+    <div class="compte">
+      <strong id="compte-valeur">J−16</strong>
+      <p id="compte-texte">avant l'événement.</p>
+    </div>
+
+    <div class="alerte">
+      <h3>Ce qui se joue cette semaine</h3>
+      <ul>
+        <li><b>L'enregistrement de la délégation.</b> Il passe par le portail e-deleGATE, sous la responsabilité de la Mission permanente, et couvre en une fois le débat général et toutes les réunions de haut niveau. La date butoir de l'UNGA 81 est à récupérer dans la note d'information aux délégations. Repère de l'an dernier : l'enregistrement fermait le 12 septembre.</li>
+        <li><b>L'accès des invités qui ne sont pas des délégations.</b> Fondations, ONG et partenaires techniques ne peuvent pas entrer au Siège sans badge valide. Cette contrainte décide du lieu autant que du format.</li>
+        <li><b>Les visas américains et les billets.</b> Aucune ligne du dossier maître ne les couvre. À J−16, c'est le premier risque de siège vide à la tribune.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="onglets" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="t-preparer" aria-controls="s-preparer" aria-selected="true">Préparer<span class="pastille-onglet" id="badge-preparer"></span></button>
+    <button role="tab" id="t-jourj" aria-controls="s-jourj" aria-selected="false">Jour J<span class="pastille-onglet">23 sept.</span></button>
+    <button role="tab" id="t-invites" aria-controls="s-invites" aria-selected="false">Invités</button>
+    <button role="tab" id="t-suivi" aria-controls="s-suivi" aria-selected="false">Suivi</button>
+    <button role="tab" id="t-reperes" aria-controls="s-reperes" aria-selected="false">Repères</button>
+    <button role="tab" id="t-historique" aria-controls="s-historique" aria-selected="false">Historique</button>
+    <button role="tab" id="t-reglages" aria-controls="s-reglages" aria-selected="false">Réglages<span class="pastille-onglet" id="badge-sync">local</span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="s-preparer" role="tabpanel" aria-labelledby="t-preparer">
+
+  <h2>Les cinq murs</h2>
+  <p class="intro">Cinq décisions bloquent le reste : l'impression, le plan de salle, le protocole, le montage vidéo et la composition même de la tribune en dépendent. Touchez une carte quand la décision est prise.</p>
+  <div class="murs" id="murs"></div>
+
+  <h2>Les trois prochaines actions</h2>
+  <p class="intro">Calculées sur les échéances non tenues et les plus proches. Si cette liste ne bouge pas d'un jour à l'autre, la préparation est à l'arrêt.</p>
+  <div class="trois" id="trois"></div>
+
+  <h2>Ce qui doit tomber, et quand</h2>
+  <p class="intro">Du jour où vous lisez ceci jusqu'à la semaine qui suit l'événement, recalé sur le 23 septembre.</p>
+  <div class="chrono" id="chrono"></div>
+
+  <h2>Le dispositif</h2>
+  <p class="intro">Sept rubriques. Touchez une ligne pour la marquer faite : toute l'équipe le voit. Le crayon à droite permet de changer l'intitulé, l'échéance ou le responsable. Les responsables sont désignés par leur fonction, pour rester valables quels que soient les changements de personnes.</p>
+  <div class="filtres" id="filtres">
+    <button data-f="tout" aria-pressed="true">Tout</button>
+    <button data-f="retard" aria-pressed="false">En retard</button>
+    <button data-f="semaine" aria-pressed="false">Cette semaine</button>
+    <button data-f="ouvert" aria-pressed="false">Reste à faire</button>
+    <button data-f="orphelin" aria-pressed="false">Sans responsable</button>
+  </div>
+  <div id="dispositif"></div>
+
+  <h2>Risques et parades</h2>
+  <p class="intro">Ce qui casse un événement parallèle au Siège, et la parade à décider maintenant plutôt que le jour J.</p>
+  <table class="risques">
+    <thead><tr><th>Risque</th><th>Parade à décider maintenant</th></tr></thead>
+    <tbody id="risques"></tbody>
+  </table>
+</section>
+
+<section id="s-jourj" role="tabpanel" aria-labelledby="t-jourj" hidden>
+  <h2>Le déroulé</h2>
+  <p class="intro">1 h 30 sans marge. La régie tient les cartons 5′ / 2′ / STOP, la modération coupe. Touchez une ligne dès qu'elle est passée.</p>
+  <div class="note">
+    <h3>Le format usuel du créneau de midi est de 1 h 15</h3>
+    <p>Les événements parallèles de la pause déjeuner tiennent souvent de 13 h 15 à 14 h 30. Si la salle est allouée sur 1 h 15, le segment des bailleurs passe de 31 à 16 minutes : c'est le seul endroit où couper. Arrêtez la version courte avant l'impression du carton de programme.</p>
+  </div>
+  <div class="deroule" id="deroule"></div>
+
+  <h2>La régie</h2>
+  <div class="rubrique" id="regie"></div>
+
+  <h2>Ce qu'il faut ramener de la salle</h2>
+  <div class="rubrique" id="recolte"></div>
+</section>
+
+<section id="s-invites" role="tabpanel" aria-labelledby="t-invites" hidden>
+  <h2>La jauge</h2>
+  <p class="intro">Sur un créneau de midi en semaine de haut niveau, une confirmation sur deux se transforme en présence. Visez trois invitations pour une place, suivez l'écart chaque jour.</p>
+  <div class="compteurs" id="compteurs"></div>
+  <p class="intro" id="lecture-jauge"></p>
+
+  <h2>La tribune</h2>
+  <p class="intro">Huit places, dans l'ordre de placement proposé. Cochez quand la personne est confirmée, que son badge est sécurisé et que sa fiche est arrivée : nom et titre exacts, photo carrée d'au moins 1000 px, biographie de 60 à 80 mots, message en deux ou trois phrases, besoins techniques. Chaque siège a un suppléant désigné.</p>
+  <div class="liste" id="tribune"></div>
+
+  <h2>À convier</h2>
+  <p class="intro">Liste de travail du dossier maître, augmentée du statut d'accès au Siège. C'est ce statut, et non l'intérêt pour le sujet, qui détermine qui sera physiquement dans la salle.</p>
+  <div class="deuxcol">
+    <div class="liste"><h3>Institutions et agences</h3><div id="inv-institutions"></div></div>
+    <div class="liste"><h3>États et gouvernements</h3><div id="inv-etats"></div></div>
+  </div>
+  <div class="deuxcol" style="margin-top:16px">
+    <div class="liste"><h3>Bailleurs, fondations, partenaires techniques</h3><div id="inv-bailleurs"></div></div>
+    <div class="liste"><h3>Délégation du Tchad</h3><div id="inv-tchad"></div></div>
+  </div>
+</section>
+
+<section id="s-suivi" role="tabpanel" aria-labelledby="t-suivi" hidden>
+  <h2>Les bilatérales</h2>
+  <p class="intro">Un événement parallèle ne décide pas d'un financement : il légitime une demande déjà posée. Les rendez-vous en marge sont l'endroit où l'argent se discute. À caler avant le départ, pas sur place.</p>
+  <div class="rubrique" id="bilaterales"></div>
+
+  <h2>Recueillir les engagements</h2>
+  <p class="intro">Une annonce non écrite disparaît en trois jours. Chaque partenaire qui s'exprime repart avec une fiche d'une page à renseigner sur place : institution, nature de l'appui, ordre de grandeur, échéance, point de contact.</p>
+  <div class="rubrique" id="engagements"></div>
+
+  <h2>Après l'événement</h2>
+  <p class="intro">La redevabilité se joue dans les trente jours. Passé ce délai, les annonces faites en salle ne se rattrapent plus.</p>
+  <div class="rubrique" id="apres"></div>
+</section>
+
+<section id="s-reperes" role="tabpanel" aria-labelledby="t-reperes" hidden>
+  <h2>Repères vérifiés</h2>
+  <p class="intro">Éléments confrontés aux sources officielles des Nations Unies le 7 septembre 2026. Ce qui contredit le dossier maître du 3 septembre est signalé.</p>
+  <div id="reperes"></div>
+</section>
+
+<section id="s-historique" role="tabpanel" aria-labelledby="t-historique" hidden>
+  <h2>Historique</h2>
+  <p class="intro">Tout est réversible. Chaque changement s'annule depuis le message qui s'affiche juste après, depuis le bouton ci-dessous, ou avec Ctrl+Z. Les soixante derniers gestes sont listés ici avec leur auteur et leur horodatage.</p>
+  <div class="actions" style="margin-bottom:16px">
+    <button class="bouton secondaire" id="btn-annuler">↶ Annuler le dernier changement</button>
+    <button class="bouton secondaire" id="btn-copier">☰ Copier le point de situation</button>
+    <button class="bouton secondaire" id="btn-imprimer">⎙ Imprimer</button>
+  </div>
+  <div class="journal" id="journal-long"></div>
+</section>
+
+<section id="s-reglages" role="tabpanel" aria-labelledby="t-reglages" hidden>
+  <h2>Réglages</h2>
+
+  <div class="bloc">
+    <h3>Votre nom</h3>
+    <p>Il s'affiche à côté de chaque case que vous cochez, pour que l'équipe sache qui a validé quoi.</p>
+    <div class="champs">
+      <div><label for="mon-nom">Nom</label><input type="text" id="mon-nom" placeholder="Prénom Nom" autocomplete="name"></div>
+      <div><label for="ma-fonction">Fonction ou entité</label><input type="text" id="ma-fonction" placeholder="DSR, Mission permanente, UNFPA"></div>
+    </div>
+    <button class="bouton" id="btn-nom">Enregistrer</button>
+  </div>
+
+  <div class="bloc">
+    <h3>Mémoire partagée</h3>
+    <p>Sans cette adresse, les coches restent sur cet appareil. Avec elle, tout le monde voit les mêmes cases en quelques secondes.</p>
+    <ol class="mode">
+      <li>Créez un Google Sheet vierge, puis <b>Extensions → Apps Script</b>.</li>
+      <li>Collez le script ci-dessous et enregistrez.</li>
+      <li><b>Déployer → Nouveau déploiement → Application web.</b> Exécuter en tant que : moi. Qui a accès : tout le monde.</li>
+      <li>Copiez l'adresse qui se termine par <code>/exec</code> et collez-la ci-dessous.</li>
+      <li>Transmettez cette même adresse à l'équipe ; chacun la colle une fois.</li>
+    </ol>
+    <label for="adresse-sync">Adresse de la mémoire partagée</label>
+    <input type="url" id="adresse-sync" placeholder="https://script.google.com/macros/s/.../exec">
+    <div class="actions" style="margin-top:12px">
+      <button class="bouton" id="btn-connecter">Connecter</button>
+      <button class="bouton secondaire" id="btn-deconnecter">Déconnecter</button>
+      <button class="bouton secondaire" id="btn-relire">Relire maintenant</button>
+    </div>
+    <p class="etat-sync" id="etat-sync">Mémoire locale : les coches restent sur cet appareil.</p>
+    <details style="margin-top:14px">
+      <summary style="cursor:pointer;color:var(--encre)">Voir le script à coller (memoire-partagee.gs)</summary>
+<pre>function feuille(){
+  var f = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Etat');
+  if(!f){ f = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Etat');
+          f.appendRow(['id','valeur','auteur','horodatage']); }
+  return f;
+}
+function doGet(){
+  var d = feuille().getDataRange().getValues(); d.shift();
+  var out = d.map(function(l){ return {id:l[0], v:l[1], by:l[2], at:l[3]}; });
+  return ContentService.createTextOutput(JSON.stringify(out))
+         .setMimeType(ContentService.MimeType.JSON);
+}
+function doPost(e){
+  var r = JSON.parse(e.postData.contents);
+  var f = feuille(), d = f.getDataRange().getValues(), trouve = 0;
+  for(var i=1;i&lt;d.length;i++){ if(d[i][0]===r.id){ trouve = i+1; break; } }
+  if(trouve){ f.getRange(trouve,1,1,4).setValues([[r.id,r.v,r.by,r.at]]); }
+  else { f.appendRow([r.id,r.v,r.by,r.at]); }
+  return ContentService.createTextOutput(JSON.stringify({ok:true}))
+         .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+    </details>
+  </div>
+
+  <div class="bloc">
+    <h3>Modifier, ajouter, attribuer</h3>
+    <p>Le crayon à droite de chaque activité ouvre un formulaire : intitulé, échéance et responsable, modifiables sur toutes les activités, y compris celles du dossier maître. La valeur d'origine reste rappelée sous le formulaire et se rétablit d'un bouton : rien n'est jamais écrasé définitivement. Une activité modifiée porte la mention « modifiée ».</p>
+    <p>En bas de chaque rubrique, « Ajouter une activité ou une sous-tâche » crée une nouvelle ligne, avec rattachement facultatif à une activité existante. Ces ajouts portent la mention « ajoutée » et sont, eux, supprimables.</p>
+    <p>Pour attribuer, touchez la pastille du nom. Le panneau qui s'ouvre liste les personnes connues et permet d'en créer une nouvelle, avec son rattachement ; elle devient aussitôt disponible pour tout le monde et sur toutes les activités.</p>
+    <p>Modifications, ajouts, personnes et compteurs passent par le même classeur que les coches, sous des identifiants préfixés <code>edit:</code>, <code>task:</code>, <code>resp:</code>, <code>role:</code> et <code>num:</code>. Ces lignes apparaissent dans l'onglet Etat : ne les supprimez pas.</p>
+  </div>
+
+  <div class="bloc">
+    <h3>Ce que la page fait toute seule</h3>
+    <p>Elle relit la mémoire partagée toutes les vingt secondes et à chaque retour sur l'onglet. Elle bascule sur « Jour J » le 23 septembre au matin. Si le réseau tombe, elle continue de fonctionner sur les dernières valeurs connues et renvoie vos coches dès qu'il revient. Le bouton Imprimer sort la totalité des onglets en un document, pour la réunion de comité.</p>
+    <div class="actions">
+      <button class="bouton secondaire" id="btn-export">Exporter l'état (fichier)</button>
+      <button class="bouton danger" id="btn-vider">Effacer l'état de cet appareil</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <span>Document de travail interne · MSPP</span><span>·</span>
+  <span>La foi en action · New York, 23 septembre 2026</span>
+</div></footer>
+
+<dialog id="dlg-qui">
+  <div class="tete"><h3>Qui porte cette activité ?</h3><p style="margin:0;color:var(--gris);font-size:14px" id="qui-activite"></p></div>
+  <div class="contenu">
+    <div class="gens" id="qui-liste"></div>
+    <div class="champs">
+      <div><label for="qui-nom">Nouvelle personne</label><input type="text" id="qui-nom" placeholder="Prénom Nom"></div>
+      <div><label for="qui-rattachement">Rattachement</label><input type="text" id="qui-rattachement" placeholder="DSR, UNFPA, Mission permanente"></div>
+    </div>
+    <button class="bouton secondaire" id="qui-creer">Créer et attribuer</button>
+  </div>
+  <div class="pied">
+    <button class="bouton secondaire" id="qui-retirer">Retirer le responsable</button>
+    <button class="bouton" id="qui-fermer">Fermer</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-edit">
+  <div class="tete"><h3 id="edit-titre">Modifier l'activité</h3></div>
+  <div class="contenu">
+    <label for="edit-intitule">Intitulé</label>
+    <input type="text" id="edit-intitule">
+    <div class="champs" style="margin-top:12px">
+      <div><label for="edit-echeance">Échéance</label><input type="date" id="edit-echeance"></div>
+      <div><label for="edit-resp">Responsable</label><input type="text" id="edit-resp" placeholder="Fonction ou personne"></div>
+    </div>
+    <div class="rappel" id="edit-rappel"></div>
+    <button class="bouton secondaire" id="edit-restaurer">Rétablir la valeur d'origine</button>
+  </div>
+  <div class="pied">
+    <button class="bouton danger" id="edit-supprimer" hidden>Supprimer</button>
+    <button class="bouton secondaire" id="edit-annuler">Annuler</button>
+    <button class="bouton" id="edit-valider">Enregistrer</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-ajout">
+  <div class="tete"><h3>Nouvelle activité</h3></div>
+  <div class="contenu">
+    <label for="ajout-intitule">Intitulé</label>
+    <input type="text" id="ajout-intitule">
+    <div class="champs" style="margin-top:12px">
+      <div><label for="ajout-echeance">Échéance</label><input type="date" id="ajout-echeance"></div>
+      <div><label for="ajout-resp">Responsable</label><input type="text" id="ajout-resp" placeholder="Fonction ou personne"></div>
+    </div>
+    <label for="ajout-parent">Rattacher à une activité existante</label>
+    <select id="ajout-parent"><option value="">Aucun rattachement</option></select>
+  </div>
+  <div class="pied">
+    <button class="bouton secondaire" id="ajout-annuler">Annuler</button>
+    <button class="bouton" id="ajout-valider">Ajouter</button>
+  </div>
+</dialog>
+
+<div id="toast" hidden><span id="toast-texte"></span><button id="toast-annuler">Annuler</button></div>
+
+<script>
+"use strict";
+
+const JOUR_J = "2026-09-23";
+
+const MURS = [
+  { id:"mur-salle", titre:"La salle", detail:"Créneau du 23 septembre demandé par la Mission permanente aux services de conférence, et confirmé par écrit. Sans confirmation, ni carton, ni impression, ni plan de salle.", attente:"Non confirmée", fait:"Confirmée par écrit" },
+  { id:"mur-acces", titre:"L'accès des invités", detail:"Enregistrement de la délégation sur e-deleGATE, badges des panélistes non gouvernementaux, cartes d'accès secondaires ou tickets de réunion. Sans badge, un invité ne franchit pas la grille.", attente:"Non traité", fait:"Tous les entrants ont une voie d'accès" },
+  { id:"mur-deplacement", titre:"Le déplacement", detail:"Visas américains, billets, hébergement et transferts pour la délégation et les intervenants venus de N'Djamena. Le poste le plus long, et le grand absent du dossier maître.", attente:"Non engagé", fait:"Délégation en route" },
+  { id:"mur-ministre", titre:"La participation du Ministre", detail:"Sa confirmation déclenche le protocole, la sécurité, l'ordre de préséance et les passes VIP.", attente:"À confirmer", fait:"Confirmée" },
+  { id:"mur-video", titre:"Le master vidéo", detail:"1 min 30, chemin critique le plus long. Tout retard sur les tournages se répercute sur le montage et le test en salle.", attente:"Prestataire non mandaté", fait:"Master livré" }
+];
+
+const CHRONO = [
+  { debut:"2026-09-07", quand:"Lundi 7 septembre", note:"J−16",
+    faits:["Saisir les services de conférence pour le créneau du 23 septembre","Confirmer la participation du Ministre","Arrêter la liste nominative de la délégation et lancer les visas","Mandater le prestataire audiovisuel"] },
+  { debut:"2026-09-08", fin:"2026-09-09", quand:"8 et 9 septembre", note:"J−15 · J−14",
+    faits:["Récupérer la note d'information aux délégations et la date butoir d'enregistrement de l'UNGA 81","Ouvrir l'enregistrement e-deleGATE de la délégation","Recenser qui, parmi les invités, détient déjà un badge des Nations Unies","Relayer les notes verbales aux États et institutions"] },
+  { debut:"2026-09-10", fin:"2026-09-13", quand:"10 au 13 septembre", note:"J−13 · J−10",
+    faits:["Repérages, autorisations et consentements de tournage","Tournage terrain à N'Djamena et dans une province","Courriels aux bailleurs, aux panélistes et aux co-hôtes","Mise en ligne du site et vérification du QR code avant impression"] },
+  { debut:"2026-09-14", fin:"2026-09-15", quand:"14 et 15 septembre", note:"J−9 · J−8",
+    faits:["Clôture de l'enregistrement de la délégation, sauf date officielle plus tardive","Interviews des autorités et interview à distance de la Directrice Exécutive de l'UNFPA","Fiches panélistes complètes et suppléants désignés","Rendez-vous bilatéraux calés avec les bailleurs"] },
+  { debut:"2026-09-16", fin:"2026-09-18", quand:"16 au 18 septembre", note:"J−7 · J−5",
+    faits:["Montage V1 de la vidéo","Conducteur minute par minute, dans la version 1 h 30 et dans la version 1 h 15","Impression des supports et acheminement à New York","Deux annonces d'engagement pré-négociées et confirmées"] },
+  { debut:"2026-09-19", fin:"2026-09-20", quand:"19 et 20 septembre", note:"J−4 · J−3",
+    faits:["Master vidéo et sous-titres FR / EN / AR","Relance téléphonique de tous les confirmés","Vérification badge par badge, tribune puis délégation","Départ de la délégation"] },
+  { debut:"2026-09-21", quand:"Lundi 21 septembre", note:"J−2",
+    faits:["Briefing des intervenants sur place","Porte-noms, ordre de préséance et placement","Répétition de la modération et questions de relance"] },
+  { debut:"2026-09-22", quand:"Mardi 22 septembre", note:"J−1",
+    faits:["Repérage de la salle et test de projection sur le matériel de la salle","Installation des kakémonos","Répétition générale et liste de contrôle technique","Communiqué sous embargo prêt à partir"] },
+  { debut:"2026-09-23", quand:"Mercredi 23 septembre", note:"Jour J",
+    faits:["Accueil VVIP et déroulé selon le conducteur","Captation photo et vidéo, demande de diffusion sur UN WebTV","Fiches d'engagement remplies en salle","Photos de famille et point presse"] },
+  { debut:"2026-09-24", fin:"2026-09-30", quand:"24 au 30 septembre", note:"J+1 · J+7",
+    faits:["Communiqué, album et vidéo courte","Note de synthèse et tableau des engagements","Lettres de remerciement portant rappel de l'engagement annoncé","Premières relances des bilatérales"] }
+];
+
+const RUBRIQUES = [
+  { id:"protocole", titre:"Protocole, accès et Nations Unies", porteur:"Mission permanente du Tchad à New York" },
+  { id:"delegation", titre:"Délégation et déplacement", porteur:"Cabinet du Ministre et DSR" },
+  { id:"panel", titre:"Panel, conducteur et intervenants", porteur:"Comité d'organisation" },
+  { id:"video", titre:"Vidéo d'ouverture", porteur:"UNFPA Tchad et prestataire audiovisuel" },
+  { id:"comm", titre:"Communication et supports", porteur:"Cellule communication conjointe" },
+  { id:"invitations", titre:"Invitations, jauge et confirmations", porteur:"Direction de la Santé de la Reproduction" },
+  { id:"ressources", titre:"Mobilisation des ressources", porteur:"Comité d'organisation et UNFPA" }
+];
+
+const ACTIVITES = [
+  {id:"pr1", r:"protocole", t:"Saisir les services de conférence pour un créneau le 23 septembre, hors séance plénière", d:"2026-09-07", resp:"Mission permanente"},
+  {id:"pr2", r:"protocole", t:"Préciser la configuration, la capacité de 100 à 150 personnes, l'interprétation, la projection et la sonorisation", d:"2026-09-08", resp:"Mission permanente"},
+  {id:"pr3", r:"protocole", t:"Obtenir la confirmation écrite de la salle, du créneau et de la durée réelle allouée", d:"2026-09-09", resp:"Mission permanente"},
+  {id:"pr4", r:"protocole", t:"Récupérer la note d'information aux délégations de l'UNGA 81 et relever la date butoir d'enregistrement", d:"2026-09-08", resp:"Mission permanente"},
+  {id:"pr5", r:"protocole", t:"Enregistrer la délégation sur le portail e-deleGATE, une seule demande pour le débat général et les réunions de haut niveau", d:"2026-09-11", resp:"Mission permanente"},
+  {id:"pr6", r:"protocole", t:"Vérifier si des cartes d'accès secondaires ou des tickets de réunion sont exigés en plus du badge pour la période du 22 au 29 septembre", d:"2026-09-11", resp:"Mission permanente"},
+  {id:"pr7", r:"protocole", t:"Recenser les invités déjà titulaires d'un badge des Nations Unies et traiter séparément ceux qui n'en ont pas", d:"2026-09-11", resp:"Comité d'organisation"},
+  {id:"pr8", r:"protocole", t:"Demander et suivre les passes VVIP sans photo pour les chefs d'État et VIP avec photo pour les ministres", d:"2026-09-15", resp:"Protocole"},
+  {id:"pr9", r:"protocole", t:"Traiter l'accréditation média par la voie des missions, l'inscription indépendante étant close depuis le 31 août", d:"2026-09-10", resp:"Mission permanente"},
+  {id:"pr10", r:"protocole", t:"Coordonner avec la sécurité des Nations Unies les mouvements des délégations", d:"2026-09-18", resp:"Mission permanente"},
+  {id:"pr11", r:"protocole", t:"Établir l'ordre de préséance, le placement nominatif et les porte-noms", d:"2026-09-21", resp:"Protocole"},
+  {id:"pr12", r:"protocole", t:"Demander l'inscription de l'événement au Journal des Nations Unies et la captation sur UN WebTV", d:"2026-09-16", resp:"Mission permanente"},
+
+  {id:"de1", r:"delegation", t:"Arrêter la liste nominative de la délégation et des intervenants qui voyagent", d:"2026-09-07", resp:"Cabinet du Ministre"},
+  {id:"de2", r:"delegation", t:"Lancer les demandes de visa américain, avec note verbale d'appui pour les rendez-vous consulaires", d:"2026-09-08", resp:"Cabinet du Ministre"},
+  {id:"de3", r:"delegation", t:"Réserver les billets et confirmer les itinéraires, arrivée au plus tard le 21 septembre", d:"2026-09-11", resp:"DSR"},
+  {id:"de4", r:"delegation", t:"Réserver l'hébergement à New York et organiser les transferts", d:"2026-09-11", resp:"DSR"},
+  {id:"de5", r:"delegation", t:"Établir les ordres de mission et régler les frais de séjour", d:"2026-09-14", resp:"Cabinet du Ministre"},
+  {id:"de6", r:"delegation", t:"Prévoir un plan de repli par intervention à distance pour tout intervenant dont le visa n'est pas délivré à J−5", d:"2026-09-18", resp:"Comité d'organisation"},
+  {id:"de7", r:"delegation", t:"Briefer la délégation sur les accès, les horaires de sécurité et les zones réservées du Siège", d:"2026-09-21", resp:"Mission permanente"},
+
+  {id:"pa1", r:"panel", t:"Confirmer la participation du Ministre de la Santé Publique et de la Prévention", d:"2026-09-07", resp:"Cabinet du Ministre"},
+  {id:"pa2", r:"panel", t:"Confirmer la Directrice Exécutive de l'UNFPA et la Représentante Résidente au Tchad", d:"2026-09-10", resp:"UNFPA New York"},
+  {id:"pa3", r:"panel", t:"Confirmer le Président du CNAIT et la Présidente de la Ligue des Femmes Prédicatrices", d:"2026-09-10", resp:"Comité d'organisation"},
+  {id:"pa4", r:"panel", t:"Identifier et préparer la jeune intervenante qui porte le témoignage de la jeunesse", d:"2026-09-12", resp:"DSR"},
+  {id:"pa5", r:"panel", t:"Désigner un suppléant pour chaque siège de la tribune", d:"2026-09-14", resp:"Comité d'organisation"},
+  {id:"pa6", r:"panel", t:"Trancher le doublon du dossier maître : le Ministre ouvre et intervient, la Directrice DSR modère et siège", d:"2026-09-09", resp:"Comité d'organisation"},
+  {id:"pa7", r:"panel", t:"Collecter les fiches panélistes : nom et titre exacts, photo carrée d'au moins 1000 px, biographie de 60 à 80 mots, message, besoins techniques", d:"2026-09-14", resp:"Cellule communication"},
+  {id:"pa8", r:"panel", t:"Envoyer à chaque intervenant sa note de cadrage : message attendu, temps de parole écrit, consigne de fin", d:"2026-09-16", resp:"Modération"},
+  {id:"pa9", r:"panel", t:"Arrêter la liste des bailleurs et co-hôtes invités à s'exprimer, deux à trois minutes chacun", d:"2026-09-15", resp:"Comité d'organisation"},
+  {id:"pa10", r:"panel", t:"Rédiger le conducteur minute par minute en deux versions, 1 h 30 et 1 h 15", d:"2026-09-17", resp:"Modération"},
+  {id:"pa11", r:"panel", t:"Briefer les intervenants et répéter la modération", d:"2026-09-21", resp:"Modération"},
+
+  {id:"vi1", r:"video", t:"Mandater le prestataire audiovisuel et cadrer les livrables attendus", d:"2026-09-07", resp:"UNFPA Tchad"},
+  {id:"vi2", r:"video", t:"Repérages, autorisations d'accès et consentements écrits, accord parental pour les mineures", d:"2026-09-09", resp:"Prestataire"},
+  {id:"vi3", r:"video", t:"Tournage terrain : femmes prédicatrices en action, centres de santé, bénéficiaires, plans d'illustration", d:"2026-09-13", resp:"Prestataire"},
+  {id:"vi4", r:"video", t:"Interviews des autorités : CNAIT, Ministre, Représentante Résidente de l'UNFPA", d:"2026-09-15", resp:"Prestataire"},
+  {id:"vi5", r:"video", t:"Interview à distance de la Directrice Exécutive de l'UNFPA", d:"2026-09-15", resp:"UNFPA New York"},
+  {id:"vi6", r:"video", t:"Dérushage, montage V1, colorimétrie et animation de la courbe 2017 à 2025", d:"2026-09-18", resp:"Prestataire"},
+  {id:"vi7", r:"video", t:"Monter une version de secours de 60 secondes sur les rushes disponibles, à garder en réserve", d:"2026-09-18", resp:"Prestataire"},
+  {id:"vi8", r:"video", t:"Revue par le comité, corrections et validation", d:"2026-09-19", resp:"Comité d'organisation"},
+  {id:"vi9", r:"video", t:"Master 1 min 30 avec sous-titres FR / EN / AR, teaser 15 à 20 s et version courte 60 à 90 s", d:"2026-09-20", resp:"Prestataire"},
+  {id:"vi10", r:"video", t:"Test de projection en .mp4 H.264 sur le matériel de la salle, avec copie sur clé et sur ordinateur de secours", d:"2026-09-22", resp:"Régie"},
+
+  {id:"co1", r:"comm", t:"Mettre le site en ligne et vérifier que le QR code renvoie à l'adresse définitive avant impression", d:"2026-09-09", resp:"Cellule communication"},
+  {id:"co2", r:"comm", t:"Produire le save-the-date et lancer la diffusion réseaux et partenaires", d:"2026-09-11", resp:"Cellule communication"},
+  {id:"co3", r:"comm", t:"Produire le flyer et le carton d'invitation, versions française et anglaise", d:"2026-09-12", resp:"Cellule communication"},
+  {id:"co4", r:"comm", t:"Rattacher le message au thème de la 81e session, « Restaurer la confiance, accompagner les transformations »", d:"2026-09-12", resp:"Cellule communication"},
+  {id:"co5", r:"comm", t:"Produire le carton de programme, les kakémonos 85 × 200 cm et les slides de fond", d:"2026-09-16", resp:"Cellule communication"},
+  {id:"co6", r:"comm", t:"Demander un créneau au SDG Media Zone et au Goals Lounge pour le Ministre, du 21 au 25 septembre", d:"2026-09-14", resp:"UNFPA New York"},
+  {id:"co7", r:"comm", t:"Produire les porte-noms des panélistes, de la modératrice et des invités de marque", d:"2026-09-18", resp:"Cellule communication"},
+  {id:"co8", r:"comm", t:"Imprimer et acheminer les supports à New York, ou faire imprimer sur place", d:"2026-09-18", resp:"Cellule communication"},
+  {id:"co9", r:"comm", t:"Préparer le dossier de presse et le communiqué sous embargo, prêt à partir à la fin de la séance", d:"2026-09-18", resp:"Cellule communication"},
+  {id:"co10", r:"comm", t:"Organiser la captation photo et vidéo du jour J et le point presse", d:"2026-09-23", resp:"Cellule communication"},
+  {id:"co11", r:"comm", t:"Publier le communiqué, l'album et la vidéo courte", d:"2026-09-25", resp:"Cellule communication"},
+
+  {id:"in1", r:"invitations", t:"Remettre les lettres du Ministre aux membres du Gouvernement sollicités", d:"2026-09-08", resp:"DSR et Cabinet"},
+  {id:"in2", r:"invitations", t:"Relayer les notes verbales officielles aux États et institutions", d:"2026-09-09", resp:"Mission permanente"},
+  {id:"in3", r:"invitations", t:"Envoyer aux bailleurs la lettre, la fiche projet d'une page et le carton d'invitation", d:"2026-09-10", resp:"DSR"},
+  {id:"in4", r:"invitations", t:"Envoyer les invitations aux panélistes et à la modératrice, avec la fiche à renseigner", d:"2026-09-10", resp:"Comité d'organisation"},
+  {id:"in5", r:"invitations", t:"Tenir le tableau des confirmations : invité, réponse, badge, présence attendue", d:"2026-09-12", resp:"DSR"},
+  {id:"in6", r:"invitations", t:"Compléter les invitations auprès des délégations déjà présentes à New York, plus faciles à faire venir", d:"2026-09-17", resp:"Mission permanente"},
+  {id:"in7", r:"invitations", t:"Relancer par écrit à J−7, puis par téléphone à J−3", d:"2026-09-20", resp:"DSR"},
+  {id:"in8", r:"invitations", t:"Décider de la collation, en vérifiant ce qui est autorisé dans la salle allouée", d:"2026-09-16", resp:"Mission permanente"},
+
+  {id:"re1", r:"ressources", t:"Approcher chaque bailleur en amont, avec un message adapté à son portefeuille", d:"2026-09-15", resp:"DSR et UNFPA"},
+  {id:"re2", r:"ressources", t:"Obtenir deux annonces d'engagement pré-négociées avant le jour J", d:"2026-09-18", resp:"Comité d'organisation"},
+  {id:"re3", r:"ressources", t:"Caler les rendez-vous bilatéraux de la semaine, avant le départ", d:"2026-09-16", resp:"Comité d'organisation"},
+  {id:"re4", r:"ressources", t:"Préparer la fiche d'engagement d'une page à faire remplir en salle", d:"2026-09-18", resp:"Comité d'organisation"},
+  {id:"re5", r:"ressources", t:"Chiffrer le budget de l'événement et identifier qui couvre chaque poste", d:"2026-09-09", resp:"Comité d'organisation"},
+  {id:"re6", r:"ressources", t:"Recueillir les annonces d'engagement pendant le segment partenaires", d:"2026-09-23", resp:"Comité d'organisation"}
+];
+
+const DEROULE = [
+  {id:"dj1", h:"13:15", duree:"8 min", quoi:"Mot d'ouverture officiel", qui:"Très Haute Autorité représentant le Tchad"},
+  {id:"dj2", h:"13:23", duree:"7 min", quoi:"Allocution institutionnelle", qui:"Directrice Exécutive de l'UNFPA"},
+  {id:"dj3", h:"13:30", duree:"5 min", quoi:"Mot de bienvenue", qui:"Représentante Résidente de l'UNFPA au Tchad"},
+  {id:"dj4", h:"13:35", duree:"1 min 30", quoi:"Projection de la vidéo « De la conviction à l'action »", qui:"Régie", video:true},
+  {id:"dj5", h:"13:38", duree:"8 min", quoi:"Intervention de la communauté religieuse", qui:"Président du CNAIT ou son représentant"},
+  {id:"dj6", h:"13:46", duree:"8 min", quoi:"Témoignage d'action de terrain", qui:"Présidente de la Ligue des Femmes Prédicatrices"},
+  {id:"dj7", h:"13:54", duree:"9 min", quoi:"Perspectives sectorielles et stratégiques", qui:"Ministre de la Santé Publique et de la Prévention"},
+  {id:"dj8", h:"14:03", duree:"6 min", quoi:"Témoignage de la jeunesse", qui:"Jeune tchadienne"},
+  {id:"dj9", h:"14:09", duree:"31 min, réductible à 16", quoi:"Interventions des bailleurs et des co-hôtes, 2 à 3 minutes chacun", qui:"États partenaires et fondations"},
+  {id:"dj10", h:"14:40", duree:"5 min", quoi:"Mot de clôture et synthèse", qui:"Haute Autorité du Tchad et co-organisateurs"}
+];
+
+const REGIE = [
+  {id:"rg1", t:"Conducteur minute par minute entre les mains de la modératrice et de la régie, dans la version retenue", resp:"Modération"},
+  {id:"rg2", t:"Chronométreur en poste avec les cartons 5′ / 2′ / STOP", resp:"Régie"},
+  {id:"rg3", t:"Vidéo chargée sur la machine de la salle, testée, avec copie sur clé et version de secours", resp:"Régie"},
+  {id:"rg4", t:"Porte-noms posés selon l'ordre de préséance validé, suppléants prêts", resp:"Protocole"},
+  {id:"rg5", t:"Micros de tribune et micros de parterre vérifiés", resp:"Régie"},
+  {id:"rg6", t:"Casques d'interprétation distribués, cabines opérationnelles", resp:"Régie"},
+  {id:"rg7", t:"Kakémonos installés à l'entrée et de part et d'autre du podium", resp:"Équipe événementielle"},
+  {id:"rg8", t:"Accueil VVIP, salon d'attente et point presse ouverts", resp:"Protocole"},
+  {id:"rg9", t:"Une personne à la porte, avec la liste des confirmés et le numéro de l'escorte pour les invités sans badge", resp:"Équipe événementielle"},
+  {id:"rg10", t:"Fiches d'engagement et stylos posés aux places des partenaires", resp:"Comité d'organisation"}
+];
+
+const RECOLTE = [
+  {id:"rc1", t:"Fiches d'engagement remplies et signées, ramassées avant la sortie de salle", resp:"Comité d'organisation"},
+  {id:"rc2", t:"Liste d'émargement et cartes de visite des délégations présentes", resp:"Équipe événementielle"},
+  {id:"rc3", t:"Photos de famille et captation intégrale récupérées auprès du prestataire", resp:"Cellule communication"},
+  {id:"rc4", t:"Citations exploitables pour le communiqué de sortie", resp:"Cellule communication"},
+  {id:"rc5", t:"Demandes de suivi bilatéral exprimées en salle ou en marge", resp:"DSR"},
+  {id:"rc6", t:"Comptage réel des présents, par catégorie", resp:"Équipe événementielle"}
+];
+
+const BILATERALES = [
+  {id:"bi1", t:"UNFPA, siège et bureau régional : sécuriser la part déjà acquise et cadrer la suite", resp:"DSR"},
+  {id:"bi2", t:"Fondation Bill & Melinda Gates : planification familiale et innovation", resp:"Comité d'organisation"},
+  {id:"bi3", t:"Children's Investment Fund Foundation : plateforme SDSR au Sahel", resp:"Comité d'organisation"},
+  {id:"bi4", t:"Banque mondiale et Mécanisme de financement mondial : capital humain et financement de la santé", resp:"MSPP"},
+  {id:"bi5", t:"Banque islamique de développement et pays frères de l'OCI : angle foi et développement", resp:"Mission permanente"},
+  {id:"bi6", t:"Union européenne et FP2030 : mécanismes de financement et suivi des engagements", resp:"DSR"},
+  {id:"bi7", t:"Deux pays co-hôtes du Sahel : réplication de l'approche et déclaration conjointe", resp:"Mission permanente"}
+];
+
+const ENGAGEMENTS = [
+  {id:"en1", t:"Fiche d'une page prête : institution, nature de l'appui, ordre de grandeur, échéance, point de contact", resp:"Comité d'organisation"},
+  {id:"en2", t:"Deux annonces obtenues à l'avance, pour ouvrir le segment et entraîner les autres", resp:"Comité d'organisation"},
+  {id:"en3", t:"Une personne dédiée à la prise de notes des annonces, en salle", resp:"DSR"},
+  {id:"en4", t:"Tableau des engagements consolidé dans les 48 heures", resp:"Comité d'organisation"},
+  {id:"en5", t:"Lettre de remerciement rappelant par écrit l'engagement annoncé, sous sept jours", resp:"DSR"}
+];
+
+const APRES = [
+  {id:"ap1", t:"Communiqué publié et repris par les canaux des co-organisateurs", d:"2026-09-24", resp:"Cellule communication"},
+  {id:"ap2", t:"Album photo et vidéo courte diffusés", d:"2026-09-25", resp:"Cellule communication"},
+  {id:"ap3", t:"Note de synthèse de la rencontre transmise au Cabinet", d:"2026-09-28", resp:"DSR"},
+  {id:"ap4", t:"Tableau de suivi des engagements arrêté et partagé avec les partenaires", d:"2026-09-30", resp:"Comité d'organisation"},
+  {id:"ap5", t:"Relance des bilatérales restées sans suite", d:"2026-10-07", resp:"DSR"},
+  {id:"ap6", t:"Point de situation à trente jours : ce qui a été signé, ce qui reste ouvert", d:"2026-10-23", resp:"Comité d'organisation"},
+  {id:"ap7", t:"Retour d'expérience écrit, pour la prochaine édition", d:"2026-10-15", resp:"Comité d'organisation"}
+];
+
+const RISQUES = [
+  ["La salle n'est pas allouée sur le créneau demandé","Demander en parallèle un second créneau, le 25 septembre à midi, et tenir en réserve un lieu hors Siège : mission permanente, bureau de l'UNFPA ou hôtel proche."],
+  ["Les bailleurs invités n'ont pas de badge et n'entrent pas","Recenser dès maintenant qui détient un badge. Faire couvrir les autres par la Mission permanente. Si la couverture est impossible, le lieu hors Siège devient l'option principale."],
+  ["Les visas américains ne sortent pas à temps","Liste nominative arrêtée aujourd'hui, note verbale d'appui pour les rendez-vous consulaires, et intervention à distance prévue pour tout intervenant sans visa à J−5."],
+  ["Le master vidéo n'est pas prêt","Version de secours de 60 secondes montée à J−5 sur les rushes disponibles, et jeu de photographies projetables en dernier recours."],
+  ["Un panéliste se décommande","Un suppléant désigné par siège, et un conducteur capable d'absorber huit minutes sans se disloquer."],
+  ["La salle est à moitié vide","Trois invitations par place, relance téléphonique à J−3, mobilisation des délégations déjà sur place, et collation si la salle l'autorise."],
+  ["Le créneau alloué est de 1 h 15 et non 1 h 30","Conducteur préparé en deux versions. Le segment des bailleurs est le seul à couper, jamais les témoignages de terrain."],
+  ["Aucune annonce d'engagement n'est faite en salle","Deux annonces négociées avant le départ. Un segment de mobilisation sans annonce préparée produit des remerciements, pas des financements."],
+  ["Le Ministre est retenu par le débat général","Un membre du Gouvernement présent sur place prend l'ouverture, et le message du Ministre est enregistré à l'avance."]
+];
+
+const TRIBUNE = [
+  {id:"tb1", t:"Modératrice · Directrice de la Santé de la Reproduction", note:"Tient le fil, le temps et l'interactivité, suscite les annonces"},
+  {id:"tb2", t:"Ouverture · Ministre de la Santé Publique et de la Prévention", note:"Ouvre au nom du Tchad et pose l'engagement politique"},
+  {id:"tb3", t:"Institutionnel · Directrice Exécutive de l'UNFPA", note:"Ancre l'initiative dans l'agenda mondial de la santé de la reproduction"},
+  {id:"tb4", t:"Voix religieuse · Président du CNAIT", note:"Démontre la compatibilité entre valeurs religieuses et santé de la reproduction"},
+  {id:"tb5", t:"Terrain · Présidente de la Ligue des Femmes Prédicatrices", note:"Incarne l'impact concret et le dernier kilomètre"},
+  {id:"tb6", t:"Santé publique · cadre du MSPP", note:"Situe l'approche dans la politique nationale. Siège à réattribuer : le dossier maître y plaçait la Directrice DSR, déjà modératrice"},
+  {id:"tb7", t:"Jeunesse · jeune tchadienne", note:"Porte la voix des bénéficiaires et l'enjeu générationnel"},
+  {id:"tb8", t:"Accueil pays · Représentante Résidente de l'UNFPA au Tchad", note:"Contextualise le partenariat et les résultats obtenus"}
+];
+
+const INVITES = {
+  "inv-institutions":[
+    ["UNFPA","Co-organisateur, chef de file mondial sur la santé reproductive","ok","Badge des Nations Unies"],
+    ["OMS","Santé maternelle et néonatale, systèmes de santé","ok","Badge des Nations Unies"],
+    ["UNICEF","Santé de la mère et de l'enfant, lutte contre le mariage d'enfants","ok","Badge des Nations Unies"],
+    ["ONU Femmes","Égalité des genres, lutte contre les violences basées sur le genre","ok","Badge des Nations Unies"],
+    ["Banque mondiale","Capital humain, financement de la santé","risque","Accès à vérifier"],
+    ["OCI et Banque islamique de développement","Acteurs religieux, santé et développement","risque","Accès à vérifier"]
+  ],
+  "inv-etats":[
+    ["Sahel et Bassin du Lac Tchad","Burkina Faso, Mali, Niger, Mauritanie, Cameroun, Nigéria, Sénégal","ok","Délégations déjà accréditées"],
+    ["Co-hôtes pressentis","Mauritanie, Sénégal, Mali, Burkina Faso, Cameroun","ok","Délégations déjà accréditées"],
+    ["Alliance Sahel","Coordination des bailleurs sur l'éducation des filles et la SDSR","risque","Accès à vérifier"],
+    ["Donateurs bilatéraux","Pays-Bas, Norvège, Espagne, Canada, France, Allemagne, Belgique, Danemark","ok","Délégations déjà accréditées"],
+    ["Pays frères de l'OCI","Arabie saoudite, Qatar, Émirats arabes unis, Koweït, Turquie","ok","Délégations déjà accréditées"]
+  ],
+  "inv-bailleurs":[
+    ["Fondation Bill & Melinda Gates","Financement de la planification familiale et de l'innovation","risque","Sans badge par défaut, à couvrir"],
+    ["Children's Investment Fund Foundation","Plateforme pour la SDSR au Sahel","risque","Sans badge par défaut, à couvrir"],
+    ["Union européenne","Mécanismes de financement innovants","ok","Délégation accréditée"],
+    ["FP2030","Suivi des engagements nationaux de planification familiale","risque","Sans badge par défaut, à couvrir"],
+    ["PAI, Faith Plus Family Planning","Plaidoyer avec les organisations confessionnelles","risque","Sans badge par défaut, à couvrir"],
+    ["Fondation Kühne, HELP Logistics","Chaîne d'approvisionnement en produits de santé","risque","Sans badge par défaut, à couvrir"],
+    ["OASIS et Réseau Elles du Sahel","Plaidoyer pour le financement de la SDSR","risque","Sans badge par défaut, à couvrir"]
+  ],
+  "inv-tchad":[
+    ["Ministère de la Santé Publique et de la Prévention","Haut Patronage et chef de délégation","risque","Visa, billet et enregistrement"],
+    ["Ministère d'État, Femme et Enfance","Droits des femmes et santé","risque","Visa, billet et enregistrement"],
+    ["Action sociale et Affaires humanitaires","Réponse humanitaire et résilience","risque","Visa, billet et enregistrement"],
+    ["CNAIT et Ligue des Femmes Prédicatrices","Dignitaires et intervenants de terrain","risque","Visa, billet et enregistrement"],
+    ["Jeune intervenante","Témoignage de la jeunesse","risque","Visa et accompagnement à prévoir"],
+    ["UNFPA Tchad","Représentante Résidente et équipe d'appui","ok","Voie interne aux Nations Unies"],
+    ["Mission permanente à New York","Protocole, accès, notes verbales","ok","Sur place"]
+  ]
+};
+
+const COMPTEURS = [
+  {id:"vises", label:"Invitations envoyées", aide:"Objectif : trois par place"},
+  {id:"confirmes", label:"Confirmations reçues", aide:"Réponses positives écrites"},
+  {id:"badges", label:"Accès sécurisés", aide:"Confirmés pouvant entrer au Siège"},
+  {id:"places", label:"Places en salle", aide:"Capacité annoncée par les services de conférence"}
+];
+
+const REPERES = [
+  { titre:"La semaine de haut niveau court du 18 au 28 septembre 2026",
+    corps:"Le dossier maître retient 22 au 28 septembre. Les Nations Unies affichent un programme de haut niveau du 18 au 28 septembre, le débat général se tenant du 22 au 28. Le Moment ODD ouvre la période le 18 septembre. La fenêtre utile pour un événement parallèle est donc plus large que ce que le dossier suppose.",
+    source:"un.org/en/high-level-week-2026, consulté le 7 septembre 2026" },
+  { titre:"Le 23 septembre est encadré par deux réunions officielles",
+    corps:"Ce jour-là se tiennent la réunion de haut niveau sur le 40e anniversaire de la Déclaration sur le droit au développement, de 10 h à 13 h puis de 15 h à 18 h en salle de conférence 4, et l'événement de haut niveau sur l'action climatique, de 15 h à 18 h dans la salle du Conseil de tutelle. Le créneau de 13 h 15 à 14 h 45 tombe bien hors séance officielle. Le choix du créneau est donc cohérent.",
+    source:"un.org/en/high-level-week-2026, consulté le 7 septembre 2026" },
+  { titre:"Le 25 septembre concentre l'audience santé",
+    corps:"La réunion de haut niveau sur la prévention, la préparation et la riposte aux pandémies occupe la salle de conférence 1 toute la journée du 25 septembre, de 10 h à 18 h. Les ministres de la santé et les financeurs du secteur seront dans le bâtiment ce jour-là. Un événement sur la santé maternelle placé le 25 à l'heure du déjeuner capte cette audience ; le 23, il est en concurrence avec le climat et le droit au développement. L'arbitrage se fait sur la disponibilité du Ministre et sur ce que la Mission permanente obtient.",
+    source:"un.org/en/high-level-week-2026, consulté le 7 septembre 2026" },
+  { titre:"L'accréditation média indépendante est close, celle des missions ne l'est pas",
+    corps:"La date limite pour la presse qui postule seule était le 31 août 2026, ce que confirme le dossier maître. Mais les missions permanentes disposent d'une seconde voie : la demande de laissez-passer temporaire de presse par le système d'enregistrement du portail e-deleGATE, dont l'échéance est plus tardive. À l'UNGA 80, cette voie fermait le 12 septembre quand la voie indépendante fermait le 29 août. La date exacte pour l'UNGA 81 est à confirmer auprès de la Mission permanente. La couverture presse n'est donc pas perdue.",
+    source:"un.org/en/accreditation et FAQ MALU pour les délégations, consultés le 7 septembre 2026" },
+  { titre:"L'enregistrement des délégations passe par e-deleGATE, en une seule demande",
+    corps:"Le service du protocole traite l'enregistrement par le système eRegistration du portail e-deleGATE. Une seule demande couvre le débat général et l'ensemble des réunions de haut niveau. Les diplomates en poste à New York déjà titulaires d'un badge n'ont pas à être enregistrés. À l'UNGA 80, l'enregistrement fermait le 12 septembre et les badges étaient délivrés à partir du 8 septembre. La règle des deux semaines citée dans le dossier maître est une approximation prudente : tant que la note officielle de l'UNGA 81 n'est pas en main, retenez la date la plus précoce.",
+    source:"Note de briefing du service du protocole, UNGA 80, consultée le 7 septembre 2026" },
+  { titre:"Passes VVIP et VIP, la distinction est confirmée",
+    corps:"Les passes VVIP, sans photographie, sont délivrés aux chefs d'État et de gouvernement, vice-présidents, princes et princesses héritiers, et à leurs conjoints. Les passes VIP, avec photographie, vont aux vice-Premiers ministres, aux ministres et aux présidents de parlement, et à leurs conjoints. Le dossier maître est exact sur ce point.",
+    source:"Note de briefing du service du protocole, UNGA 80, consultée le 7 septembre 2026" },
+  { titre:"Un badge peut ne pas suffire du 22 au 29 septembre",
+    corps:"Sur cette période, une carte d'accès secondaire ou un ticket propre à la réunion peut être exigé en plus d'un badge valide. À vérifier pour la salle allouée : c'est la différence entre un invité qui entre et un invité qui reste à la grille.",
+    source:"Note de briefing du service du protocole, UNGA 80, consultée le 7 septembre 2026" },
+  { titre:"Les invités non gouvernementaux ne peuvent pas entrer sans badge ou ticket",
+    corps:"Pour les événements parallèles tenus au Siège, tous les organisateurs, intervenants et participants doivent détenir un badge valide ou un ticket délivré par les Nations Unies. Aucun laissez-passer propre à un événement parallèle n'est créé, les inscriptions tardives ne sont pas acceptées et il n'y a pas d'inscription sur place. Les organisateurs sont responsables de vérifier que leurs intervenants ont un accès. C'est le point qui décide de la présence des fondations et des réseaux invités.",
+    source:"Note d'orientation aux organisateurs d'événements parallèles au Siège, Sommet de l'avenir, consultée le 7 septembre 2026" },
+  { titre:"Le créneau de midi tient souvent en 1 h 15",
+    corps:"Les événements parallèles de la pause déjeuner sont couramment programmés de 13 h 15 à 14 h 30. Le dossier maître construit un déroulé de 1 h 30. Préparez le conducteur dans les deux formats plutôt que de découvrir la contrainte à l'ouverture des portes.",
+    source:"Orientations aux organisateurs d'événements parallèles, Division de la population, consultées le 7 septembre 2026" },
+  { titre:"Deux tribunes gratuites en marge, et une diffusion possible",
+    corps:"Le SDG Media Zone, produit par le Département de la communication globale, se tient du 21 au 25 septembre ; le Goals Lounge, convoqué par la Vice-Secrétaire générale, du 14 au 25 septembre. Les événements sont diffusés sur UN WebTV. Une demande d'entretien pour le Ministre coûte un courriel et vaut plus qu'un communiqué.",
+    source:"un.org/en/high-level-week-2026, consulté le 7 septembre 2026" },
+  { titre:"Le thème de la session donne l'angle du message",
+    corps:"La 81e session se tient sous le thème « Restaurer la confiance, accompagner les transformations : une Organisation des Nations Unies qui tient ses promesses pour tous », sous la présidence de S. E. Khalilur Rahman, du Bangladesh. Accrocher le récit tchadien à ce thème, plutôt qu'à un discours sectoriel isolé, rend l'invitation plus lisible pour les cabinets qui trient des centaines de sollicitations.",
+    source:"un.org/en/high-level-week-2026, consulté le 7 septembre 2026" },
+  { titre:"Ce qui reste non vérifié",
+    corps:"La date butoir d'enregistrement propre à l'UNGA 81, la date de la voie média par les missions pour l'UNGA 81, la salle et sa capacité, la durée réellement allouée, les règles de restauration dans la salle, et le budget de l'événement. Aucun de ces points ne se déduit : ils se demandent, à la Mission permanente et au service du protocole.",
+    source:"" }
+];
+
+/* ==========================================================
+   État et mémoire
+   ========================================================== */
+const CLE = "unga81.v2";
+let etat = { lignes:{}, moi:{nom:"",fonction:""}, endpoint:"" };
+let pileAnnulation = [];
+let dernierMessage = null;
+let horlogeSync = null;
+let filtre = "tout";
+
+function charger(){
+  try{ const brut = localStorage.getItem(CLE); if(brut){ etat = Object.assign(etat, JSON.parse(brut)); } }catch(e){}
+}
+function sauver(){ try{ localStorage.setItem(CLE, JSON.stringify(etat)); }catch(e){} }
+function maintenant(){ return new Date().toISOString(); }
+function auteur(){ return etat.moi.nom || "Sans nom"; }
+function lire(id){ return etat.lignes[id] ? etat.lignes[id].v : null; }
+function lireObjet(id){ const v = lire(id); if(!v) return null; try{ return JSON.parse(v); }catch(e){ return null; } }
+
+function ecrire(id, valeur, libelle){
+  pileAnnulation.push(JSON.stringify(etat.lignes));
+  if(pileAnnulation.length > 30) pileAnnulation.shift();
+  etat.lignes[id] = { v: valeur, by: auteur(), at: maintenant() };
+  journaliser(libelle);
+  sauver();
+  pousser(id, etat.lignes[id]);
+  rendre();
+  if(libelle) message(libelle);
+}
+function journaliser(libelle){
+  if(!libelle) return;
+  const j = lireBrutJournal();
+  j.unshift({ t: maintenant(), qui: auteur(), quoi: libelle });
+  etat.journal = j.slice(0,60);
+}
+function lireBrutJournal(){ return Array.isArray(etat.journal) ? etat.journal.slice() : []; }
+function annuler(){
+  if(!pileAnnulation.length){ message("Rien à annuler.", true); return; }
+  etat.lignes = JSON.parse(pileAnnulation.pop());
+  const j = lireBrutJournal(); j.shift(); etat.journal = j;
+  sauver(); rendre(); message("Changement annulé.", true);
+}
+function pousser(id, ligne){
+  if(!etat.endpoint) return;
+  try{
+    fetch(etat.endpoint, { method:"POST", mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({ id:id, v:ligne.v, by:ligne.by, at:ligne.at }) }).catch(()=>{});
+  }catch(e){}
+}
+function relire(silencieux){
+  if(!etat.endpoint) return;
+  fetch(etat.endpoint, {method:"GET"}).then(r=>r.json()).then(rows=>{
+    let change = false;
+    (rows||[]).forEach(r=>{
+      if(!r || !r.id) return;
+      const local = etat.lignes[r.id];
+      if(!local || String(r.at) > String(local.at)){ etat.lignes[r.id] = { v:r.v, by:r.by, at:r.at }; change = true; }
+    });
+    if(change){ sauver(); rendre(); }
+    etatSync("ok","Mémoire partagée connectée. Dernière lecture à " + heureCourte(new Date()) + ".");
+    if(!silencieux) message("Mémoire partagée relue.", true);
+  }).catch(()=>{
+    etatSync("ko","Réseau indisponible. La page continue sur les dernières valeurs connues et renverra vos coches au retour.");
+  });
+}
+function etatSync(classe, texte){
+  const el = document.getElementById("etat-sync");
+  el.className = "etat-sync " + (classe||"");
+  el.textContent = texte;
+  document.getElementById("badge-sync").textContent = etat.endpoint ? (classe==="ko" ? "hors ligne" : "partagée") : "local";
+}
+
+/* ==========================================================
+   Utilitaires
+   ========================================================== */
+const MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+function dateFr(iso){ if(!iso) return ""; const p = iso.split("-"); if(p.length!==3) return iso; return parseInt(p[2],10)+" "+MOIS[parseInt(p[1],10)-1]; }
+function aujourdhuiISO(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function heureCourte(d){ return String(d.getHours()).padStart(2,"0")+"h"+String(d.getMinutes()).padStart(2,"0"); }
+function joursAvant(iso){ return Math.round((new Date(iso+"T00:00:00") - new Date(aujourdhuiISO()+"T00:00:00"))/86400000); }
+function echapper(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function message(texte, sansAnnuler){
+  const t = document.getElementById("toast");
+  document.getElementById("toast-texte").textContent = texte;
+  document.getElementById("toast-annuler").hidden = !!sansAnnuler;
+  t.hidden = false;
+  clearTimeout(dernierMessage);
+  dernierMessage = setTimeout(()=>{ t.hidden = true; }, 6000);
+}
+function activitesAjoutees(){
+  const out = [];
+  Object.keys(etat.lignes).forEach(id=>{
+    if(id.indexOf("task:")===0){
+      const o = lireObjet(id);
+      if(o && !o.deleted) out.push({ id:id.slice(5), r:o.section, t:o.title, d:o.due||"", resp:o.resp||"", parent:o.parent||"", ajoutee:true });
+    }
+  });
+  return out;
+}
+function toutesActivites(){ return ACTIVITES.concat(activitesAjoutees()); }
+function activiteResolue(a){
+  const mod = lireObjet("edit:"+a.id);
+  const respLigne = lire("resp:"+a.id);
+  const res = Object.assign({}, a);
+  res.origine = { t:a.t, d:a.d||"", resp:a.resp||"" };
+  if(mod){
+    if(typeof mod.title === "string" && mod.title) res.t = mod.title;
+    if(typeof mod.due === "string") res.d = mod.due;
+    if(typeof mod.resp === "string") res.resp = mod.resp;
+    res.modifiee = true;
+  }
+  if(respLigne !== null && respLigne !== undefined && respLigne !== ""){ res.resp = respLigne; res.modifiee = true; }
+  return res;
+}
+function estFaite(id){ return lire("check:"+id) === "1"; }
+function personnes(){
+  const out = [];
+  Object.keys(etat.lignes).forEach(id=>{
+    if(id.indexOf("role:")===0){ const o = lireObjet(id); if(o && o.nom) out.push({ id:id.slice(5), nom:o.nom, rattachement:o.rattachement||"" }); }
+  });
+  return out;
+}
+function passeFiltre(a){
+  if(filtre === "tout") return true;
+  const fait = estFaite(a.id);
+  if(filtre === "ouvert") return !fait;
+  if(filtre === "orphelin") return !a.resp;
+  if(filtre === "retard") return !fait && a.d && joursAvant(a.d) < 0;
+  if(filtre === "semaine") return !fait && a.d && joursAvant(a.d) >= 0 && joursAvant(a.d) <= 7;
+  return true;
+}
+
+/* ==========================================================
+   Rendu
+   ========================================================== */
+function rendre(){
+  rendreCompte(); rendreMurs(); rendreTrois(); rendreChrono(); rendreDispositif(); rendreRisques();
+  rendreDeroule();
+  rendreSimple("regie", REGIE, "Avant l'ouverture des portes");
+  rendreSimple("recolte", RECOLTE, "Pendant et juste après la séance");
+  rendreSimple("bilaterales", BILATERALES, "Rendez-vous à décrocher avant le départ");
+  rendreSimple("engagements", ENGAGEMENTS, "Le dispositif de recueil");
+  rendreSimple("apres", APRES, "Les trente jours qui suivent");
+  rendreCompteurs(); rendreTribune(); rendreInvites(); rendreReperes(); rendreJournal();
+}
+function rendreCompte(){
+  const j = joursAvant(JOUR_J);
+  const el = document.getElementById("compte-valeur"), tx = document.getElementById("compte-texte");
+  if(j > 0){ el.textContent = "J−"+j; tx.textContent = "avant l'événement. " + (j<=3 ? "Tout se joue sur la salle, les accès et le master vidéo." : "La fenêtre est courte : la salle, les accès et le déplacement de la délégation se jouent cette semaine."); }
+  else if(j === 0){ el.textContent = "Jour J"; tx.textContent = "13 h 15 à 14 h 45, heure de New York. Passez sur l'onglet Jour J."; }
+  else { el.textContent = "J+"+Math.abs(j); tx.textContent = "après l'événement. La redevabilité se joue dans les trente jours."; }
+  const toutes = toutesActivites();
+  document.getElementById("badge-preparer").textContent = toutes.filter(a=>estFaite(a.id)).length + " / " + toutes.length;
+}
+function rendreMurs(){
+  const c = document.getElementById("murs"); c.innerHTML = "";
+  MURS.forEach(m=>{
+    const fait = estFaite(m.id);
+    const b = document.createElement("button");
+    b.className = "mur" + (fait ? " fait":"");
+    b.setAttribute("aria-pressed", fait?"true":"false");
+    const l = etat.lignes["check:"+m.id];
+    const sig = (fait && l && l.by) ? "<span class='signature'>"+echapper(l.by)+"</span>" : "";
+    b.innerHTML = "<h3>"+echapper(m.titre)+"</h3><p>"+echapper(m.detail)+"</p><span class='etat'>"+(fait?m.fait:m.attente)+"</span>"+sig;
+    b.addEventListener("click", ()=> ecrire("check:"+m.id, fait?"0":"1", (fait?"Mur rouvert : ":"Mur levé : ")+m.titre));
+    c.appendChild(b);
+  });
+}
+function rendreTrois(){
+  const c = document.getElementById("trois"); c.innerHTML = "";
+  const restantes = toutesActivites().map(activiteResolue)
+    .filter(a=>!estFaite(a.id) && a.d)
+    .sort((x,y)=> x.d < y.d ? -1 : (x.d > y.d ? 1 : 0)).slice(0,3);
+  if(!restantes.length){ c.innerHTML = "<div class='vide'>Aucune échéance ouverte. Vérifiez que le dispositif est bien à jour.</div>"; return; }
+  restantes.forEach(a=> c.appendChild(ligneActivite(a)));
+}
+function rendreChrono(){
+  const c = document.getElementById("chrono"), auj = aujourdhuiISO(); c.innerHTML = "";
+  CHRONO.forEach(p=>{
+    const fin = p.fin || p.debut;
+    let cls = "jalon";
+    if(fin < auj) cls += " passe"; else if(p.debut <= auj && auj <= fin) cls += " aujourdhui";
+    const d = document.createElement("div"); d.className = cls;
+    d.innerHTML = "<div class='quand'>"+echapper(p.quand)+"<em>"+echapper(p.note)+"</em></div><ul>"+p.faits.map(f=>"<li>"+echapper(f)+"</li>").join("")+"</ul>";
+    c.appendChild(d);
+  });
+}
+function ligneActivite(a){
+  const fait = estFaite(a.id);
+  const el = document.createElement("div");
+  el.className = "ligne" + (fait?" faite":"") + (a.parent?" sous":"");
+  const b = document.createElement("button");
+  b.className = "case"; b.setAttribute("aria-pressed", fait?"true":"false");
+  b.setAttribute("aria-label", (fait?"Rouvrir : ":"Marquer faite : ")+a.t);
+  b.textContent = "✓";
+  b.addEventListener("click", ()=> ecrire("check:"+a.id, fait?"0":"1", (fait?"Rouverte : ":"Faite : ")+a.t));
+  el.appendChild(b);
+  const corps = document.createElement("div"); corps.className = "corps";
+  const l = etat.lignes["check:"+a.id];
+  const sig = (fait && l && l.by) ? " <span class='signature'>· "+echapper(l.by)+"</span>" : "";
+  let marque = a.ajoutee ? "<span class='marque'>ajoutée</span>" : (a.modifiee ? "<span class='marque'>modifiée</span>" : "");
+  let clsEch = "echeance";
+  if(a.d && !fait){ const j = joursAvant(a.d); if(j<0) clsEch += " retard"; else if(j<=2) clsEch += " proche"; }
+  const ech = a.d ? "<span class='"+clsEch+"'>"+echapper(dateFr(a.d))+"</span>" : "";
+  corps.innerHTML = "<span class='titre'>"+echapper(a.t)+"</span><span class='meta'>"+ech+
+    "<button class='pastille"+(a.resp?"":" vide")+"' data-qui='"+a.id+"'>"+echapper(a.resp||"à attribuer")+"</button>"+marque+sig+"</span>";
+  el.appendChild(corps);
+  const cr = document.createElement("button");
+  cr.className = "crayon"; cr.title = "Modifier"; cr.setAttribute("aria-label","Modifier : "+a.t); cr.textContent = "✎";
+  cr.addEventListener("click", ()=> ouvrirEdition(a));
+  el.appendChild(cr);
+  corps.querySelector("[data-qui]").addEventListener("click", ()=> ouvrirAttribution(a));
+  return el;
+}
+function rendreDispositif(){
+  const c = document.getElementById("dispositif"); c.innerHTML = "";
+  const toutes = toutesActivites().map(activiteResolue);
+  RUBRIQUES.forEach(r=>{
+    const liste = toutes.filter(a=>a.r===r.id);
+    const visibles = liste.filter(passeFiltre);
+    const faites = liste.filter(a=>estFaite(a.id)).length;
+    const pct = liste.length ? Math.round(faites*100/liste.length) : 0;
+    const box = document.createElement("div"); box.className = "rubrique";
+    const head = document.createElement("header");
+    head.innerHTML = "<h3>"+echapper(r.titre)+"</h3><span class='porteur'>"+echapper(r.porteur)+"</span>"+
+      "<span class='avancement'>"+faites+" / "+liste.length+"</span><span class='jauge'><i style='width:"+pct+"%'></i></span>";
+    box.appendChild(head);
+    if(!visibles.length){
+      const v = document.createElement("div"); v.className = "vide"; v.textContent = "Rien dans cette rubrique pour le filtre choisi.";
+      box.appendChild(v);
+    }else{
+      const parents = visibles.filter(a=>!a.parent);
+      parents.forEach(a=>{
+        box.appendChild(ligneActivite(a));
+        visibles.filter(s=>s.parent===a.id).forEach(s=> box.appendChild(ligneActivite(s)));
+      });
+      visibles.filter(a=>a.parent && !parents.some(p=>p.id===a.parent)).forEach(a=> box.appendChild(ligneActivite(a)));
+    }
+    const pied = document.createElement("div"); pied.className = "ajout";
+    const bt = document.createElement("button"); bt.textContent = "+ Ajouter une activité ou une sous-tâche";
+    bt.addEventListener("click", ()=> ouvrirAjout(r.id));
+    pied.appendChild(bt); box.appendChild(pied);
+    c.appendChild(box);
+  });
+}
+function rendreRisques(){
+  const c = document.getElementById("risques"); c.innerHTML = "";
+  RISQUES.forEach(r=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td>"+echapper(r[0])+"</td><td>"+echapper(r[1])+"</td>";
+    c.appendChild(tr);
+  });
+}
+function rendreDeroule(){
+  const c = document.getElementById("deroule"); c.innerHTML = "";
+  DEROULE.forEach(d=>{
+    const fait = estFaite(d.id);
+    const el = document.createElement("div");
+    el.className = "creneau" + (fait?" faite":"") + (d.video?" video":"");
+    el.innerHTML = "<span class='h'>"+d.h+"</span>";
+    const b = document.createElement("button");
+    b.className="case"; b.textContent="✓"; b.setAttribute("aria-pressed", fait?"true":"false"); b.setAttribute("aria-label", d.quoi);
+    b.addEventListener("click", ()=> ecrire("check:"+d.id, fait?"0":"1", (fait?"Rouvert : ":"Passé : ")+d.quoi));
+    el.appendChild(b);
+    const t = document.createElement("div");
+    t.innerHTML = "<span class='quoi'>"+echapper(d.quoi)+"</span><div class='qui'>"+echapper(d.qui)+" · "+echapper(d.duree)+"</div>";
+    el.appendChild(t);
+    c.appendChild(el);
+  });
+}
+function rendreSimple(cible, source, entete){
+  const c = document.getElementById(cible); c.innerHTML = "";
+  const head = document.createElement("header");
+  head.innerHTML = "<h3>"+echapper(entete)+"</h3><span class='avancement'>"+source.filter(x=>estFaite(x.id)).length+" / "+source.length+"</span>";
+  c.appendChild(head);
+  source.forEach(x=> c.appendChild(ligneActivite(activiteResolue({id:x.id, r:cible, t:x.t, d:x.d||"", resp:x.resp}))));
+}
+function rendreCompteurs(){
+  const c = document.getElementById("compteurs"); c.innerHTML = "";
+  COMPTEURS.forEach(k=>{
+    const d = document.createElement("div"); d.className = "compteur";
+    const val = lire("num:"+k.id) || "";
+    d.innerHTML = "<label for='num-"+k.id+"'>"+echapper(k.label)+"</label>"+
+      "<input type='number' min='0' id='num-"+k.id+"' value='"+echapper(val)+"' placeholder='0'>"+
+      "<small>"+echapper(k.aide)+"</small>";
+    c.appendChild(d);
+    d.querySelector("input").addEventListener("change", e=>{
+      ecrire("num:"+k.id, e.target.value, k.label+" : "+e.target.value);
+    });
+  });
+  const vises = parseInt(lire("num:vises")||"0",10);
+  const conf = parseInt(lire("num:confirmes")||"0",10);
+  const badges = parseInt(lire("num:badges")||"0",10);
+  const places = parseInt(lire("num:places")||"0",10);
+  let lecture = "Renseignez les compteurs pour suivre l'écart entre ce qui est promis et ce qui entrera dans la salle.";
+  if(vises || conf || badges || places){
+    const attendus = Math.round(badges * 0.6);
+    lecture = "Sur " + vises + " invitations et " + conf + " confirmations, " + badges + " personnes disposent d'un accès. "+
+      "En retenant six présences pour dix accès sécurisés, comptez environ " + attendus + " personnes en salle" +
+      (places ? " pour " + places + " places" : "") + ". " +
+      (conf > badges ? "L'écart entre confirmations et accès est le chiffre à réduire en priorité." : "Les accès suivent les confirmations.");
+  }
+  document.getElementById("lecture-jauge").textContent = lecture;
+}
+function rendreTribune(){
+  const c = document.getElementById("tribune");
+  c.innerHTML = "<h3>Huit places, dans l'ordre de placement</h3>";
+  TRIBUNE.forEach(x=>{
+    const fait = estFaite(x.id);
+    const el = document.createElement("div"); el.className = "ligne" + (fait?" faite":"");
+    const b = document.createElement("button");
+    b.className="case"; b.textContent="✓"; b.setAttribute("aria-pressed", fait?"true":"false");
+    b.setAttribute("aria-label","Confirmé, badge et fiche : "+x.t);
+    b.addEventListener("click", ()=> ecrire("check:"+x.id, fait?"0":"1", (fait?"Rouvert : ":"Confirmé, badge et fiche : ")+x.t));
+    el.appendChild(b);
+    const corps = document.createElement("div"); corps.className="corps";
+    const l = etat.lignes["check:"+x.id];
+    const sig = (fait && l && l.by) ? "<span class='signature'>· "+echapper(l.by)+"</span>" : "";
+    corps.innerHTML = "<span class='titre'>"+echapper(x.t)+"</span><span class='meta'>"+echapper(x.note)+" "+sig+"</span>";
+    el.appendChild(corps);
+    c.appendChild(el);
+  });
+}
+function rendreInvites(){
+  Object.keys(INVITES).forEach(cle=>{
+    const c = document.getElementById(cle); if(!c) return;
+    c.innerHTML = "";
+    INVITES[cle].forEach(x=>{
+      const d = document.createElement("div"); d.className="groupe";
+      d.innerHTML = "<b>"+echapper(x[0])+"</b><p>"+echapper(x[1])+"</p>"+
+        "<span class='badge "+x[2]+"'>"+echapper(x[3])+"</span>";
+      c.appendChild(d);
+    });
+  });
+}
+function rendreReperes(){
+  const c = document.getElementById("reperes"); c.innerHTML = "";
+  REPERES.forEach(r=>{
+    const d = document.createElement("div"); d.className = "bloc";
+    d.innerHTML = "<h3>"+echapper(r.titre)+"</h3><p>"+echapper(r.corps)+"</p>"+
+      (r.source ? "<div class='source'>Source : "+echapper(r.source)+"</div>" : "");
+    c.appendChild(d);
+  });
+}
+function rendreJournal(){
+  const j = lireBrutJournal();
+  const ligne = e=>{
+    const d = new Date(e.t);
+    return "<p><time>"+String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+" "+heureCourte(d)+
+      "</time><span class='auteur'>"+echapper(e.qui)+"</span> : "+echapper(e.quoi)+"</p>";
+  };
+  document.getElementById("journal-long").innerHTML = j.length ? j.map(ligne).join("")
+    : "<div class='vide'>Aucun changement pour l'instant. Cochez une ligne : elle apparaîtra ici, avec votre nom et l'heure.</div>";
+}
+
+/* ==========================================================
+   Panneaux
+   ========================================================== */
+let activiteCourante = null;
+function ouvrirAttribution(a){
+  activiteCourante = a;
+  document.getElementById("qui-activite").textContent = a.t;
+  const liste = document.getElementById("qui-liste"); liste.innerHTML = "";
+  const suggestions = ["Mission permanente","Cabinet du Ministre","DSR","Comité d'organisation","Cellule communication","UNFPA Tchad","UNFPA New York","Prestataire","Protocole","Régie","Modération","Équipe événementielle","MSPP"];
+  suggestions.forEach(s=>{
+    const b = document.createElement("button"); b.textContent = s;
+    if(a.resp === s) b.className = "actif";
+    b.addEventListener("click", ()=> attribuer(a, s));
+    liste.appendChild(b);
+  });
+  personnes().forEach(p=>{
+    const et = p.nom + (p.rattachement ? " · "+p.rattachement : "");
+    const b = document.createElement("button"); b.textContent = et;
+    if(a.resp === et) b.className = "actif";
+    b.addEventListener("click", ()=> attribuer(a, et));
+    liste.appendChild(b);
+  });
+  document.getElementById("qui-nom").value = "";
+  document.getElementById("qui-rattachement").value = "";
+  document.getElementById("dlg-qui").showModal();
+}
+function attribuer(a, valeur){ ecrire("resp:"+a.id, valeur, "Attribué à "+valeur+" : "+a.t); document.getElementById("dlg-qui").close(); }
+function ouvrirEdition(a){
+  activiteCourante = a;
+  document.getElementById("edit-titre").textContent = a.ajoutee ? "Modifier l'activité ajoutée" : "Modifier l'activité";
+  document.getElementById("edit-intitule").value = a.t;
+  document.getElementById("edit-echeance").value = a.d || "";
+  document.getElementById("edit-resp").value = a.resp || "";
+  document.getElementById("edit-rappel").innerHTML = "Valeur d'origine : « "+echapper(a.origine.t)+" »"+
+    (a.origine.d ? " · échéance du "+echapper(dateFr(a.origine.d)) : "")+(a.origine.resp ? " · "+echapper(a.origine.resp) : "");
+  document.getElementById("edit-supprimer").hidden = !a.ajoutee;
+  document.getElementById("dlg-edit").showModal();
+}
+function ouvrirAjout(rubrique){
+  activiteCourante = { r: rubrique };
+  document.getElementById("ajout-intitule").value = "";
+  document.getElementById("ajout-echeance").value = "";
+  document.getElementById("ajout-resp").value = "";
+  const sel = document.getElementById("ajout-parent");
+  sel.innerHTML = "<option value=''>Aucun rattachement</option>";
+  toutesActivites().map(activiteResolue).filter(a=>a.r===rubrique && !a.parent).forEach(a=>{
+    const o = document.createElement("option"); o.value = a.id; o.textContent = a.t.length>70 ? a.t.slice(0,70)+"…" : a.t;
+    sel.appendChild(o);
+  });
+  document.getElementById("dlg-ajout").showModal();
+}
+
+/* ==========================================================
+   Branchements
+   ========================================================== */
+const ONGLETS = ["preparer","jourj","invites","suivi","reperes","historique","reglages"];
+function onglet(nom){
+  ONGLETS.forEach(n=>{
+    document.getElementById("t-"+n).setAttribute("aria-selected", n===nom ? "true":"false");
+    document.getElementById("s-"+n).hidden = (n!==nom);
+  });
+  window.scrollTo(0,0);
+}
+ONGLETS.forEach(n=> document.getElementById("t-"+n).addEventListener("click", ()=> onglet(n)));
+
+document.querySelectorAll("#filtres button").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    filtre = b.dataset.f;
+    document.querySelectorAll("#filtres button").forEach(x=> x.setAttribute("aria-pressed", x===b ? "true":"false"));
+    rendreDispositif();
+  });
+});
+
+document.getElementById("toast-annuler").addEventListener("click", ()=>{ annuler(); document.getElementById("toast").hidden = true; });
+document.getElementById("btn-annuler").addEventListener("click", annuler);
+document.addEventListener("keydown", e=>{
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="z"){ e.preventDefault(); annuler(); }
+});
+document.getElementById("qui-fermer").addEventListener("click", ()=> document.getElementById("dlg-qui").close());
+document.getElementById("qui-retirer").addEventListener("click", ()=>{
+  if(activiteCourante) ecrire("resp:"+activiteCourante.id, "", "Responsable retiré : "+activiteCourante.t);
+  document.getElementById("dlg-qui").close();
+});
+document.getElementById("qui-creer").addEventListener("click", ()=>{
+  const nom = document.getElementById("qui-nom").value.trim();
+  if(!nom){ document.getElementById("qui-nom").focus(); return; }
+  const rat = document.getElementById("qui-rattachement").value.trim();
+  ecrire("role:p"+Date.now().toString(36), JSON.stringify({nom:nom, rattachement:rat}), "Personne ajoutée : "+nom);
+  if(activiteCourante) attribuer(activiteCourante, nom + (rat ? " · "+rat : ""));
+});
+document.getElementById("edit-annuler").addEventListener("click", ()=> document.getElementById("dlg-edit").close());
+document.getElementById("edit-valider").addEventListener("click", ()=>{
+  const a = activiteCourante; if(!a) return;
+  const t = document.getElementById("edit-intitule").value.trim();
+  const d = document.getElementById("edit-echeance").value;
+  const resp = document.getElementById("edit-resp").value.trim();
+  if(!t){ document.getElementById("edit-intitule").focus(); return; }
+  if(a.ajoutee){
+    const o = lireObjet("task:"+a.id) || {}; o.title=t; o.due=d; o.resp=resp;
+    ecrire("task:"+a.id, JSON.stringify(o), "Activité modifiée : "+t);
+  }else{
+    ecrire("edit:"+a.id, JSON.stringify({title:t, due:d, resp:resp}), "Activité modifiée : "+t);
+  }
+  document.getElementById("dlg-edit").close();
+});
+document.getElementById("edit-restaurer").addEventListener("click", ()=>{
+  const a = activiteCourante; if(!a) return;
+  document.getElementById("edit-intitule").value = a.origine.t;
+  document.getElementById("edit-echeance").value = a.origine.d || "";
+  document.getElementById("edit-resp").value = a.origine.resp || "";
+});
+document.getElementById("edit-supprimer").addEventListener("click", ()=>{
+  const a = activiteCourante; if(!a || !a.ajoutee) return;
+  if(!confirm("Supprimer définitivement « "+a.t+" » ? Cette activité a été ajoutée à la main.")) return;
+  const o = lireObjet("task:"+a.id) || {}; o.deleted = true;
+  ecrire("task:"+a.id, JSON.stringify(o), "Activité supprimée : "+a.t);
+  document.getElementById("dlg-edit").close();
+});
+document.getElementById("ajout-annuler").addEventListener("click", ()=> document.getElementById("dlg-ajout").close());
+document.getElementById("ajout-valider").addEventListener("click", ()=>{
+  const t = document.getElementById("ajout-intitule").value.trim();
+  if(!t){ document.getElementById("ajout-intitule").focus(); return; }
+  ecrire("task:t"+Date.now().toString(36), JSON.stringify({
+    section: activiteCourante.r, title: t,
+    due: document.getElementById("ajout-echeance").value,
+    resp: document.getElementById("ajout-resp").value.trim(),
+    parent: document.getElementById("ajout-parent").value
+  }), "Activité ajoutée : "+t);
+  document.getElementById("dlg-ajout").close();
+});
+document.getElementById("btn-nom").addEventListener("click", ()=>{
+  etat.moi.nom = document.getElementById("mon-nom").value.trim();
+  etat.moi.fonction = document.getElementById("ma-fonction").value.trim();
+  sauver(); rendre(); message("Nom enregistré.", true);
+});
+document.getElementById("btn-connecter").addEventListener("click", ()=>{
+  const url = document.getElementById("adresse-sync").value.trim();
+  if(!url){ etatSync("ko","Collez d'abord l'adresse qui se termine par /exec."); return; }
+  etat.endpoint = url; sauver(); etatSync("","Connexion en cours."); relire(true); lancerHorloge();
+  message("Mémoire partagée connectée.", true);
+});
+document.getElementById("btn-deconnecter").addEventListener("click", ()=>{
+  etat.endpoint = ""; sauver(); clearInterval(horlogeSync);
+  etatSync("","Mémoire locale : les coches restent sur cet appareil.");
+  message("Déconnecté de la mémoire partagée.", true);
+});
+document.getElementById("btn-relire").addEventListener("click", ()=> relire(false));
+document.getElementById("btn-imprimer").addEventListener("click", ()=> window.print());
+document.getElementById("btn-copier").addEventListener("click", ()=>{
+  const texte = pointDeSituation();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(texte).then(()=> message("Point de situation copié.", true)).catch(()=> secoursCopie(texte));
+  } else secoursCopie(texte);
+});
+function secoursCopie(texte){
+  const z = document.createElement("textarea"); z.value = texte; document.body.appendChild(z); z.select();
+  try{ document.execCommand("copy"); message("Point de situation copié.", true); }catch(e){ message("Copie impossible sur cet appareil.", true); }
+  z.remove();
+}
+function pointDeSituation(){
+  const j = joursAvant(JOUR_J), lignes = [];
+  lignes.push("LA FOI EN ACTION, point de situation au " + new Date().toLocaleDateString("fr-FR"));
+  lignes.push("Événement parallèle UNGA 81, mardi 23 septembre 2026, 13 h 15 à 14 h 45 (New York). " + (j>0?"J−"+j:(j===0?"Jour J":"J+"+Math.abs(j))));
+  lignes.push("");
+  lignes.push("LES CINQ MURS");
+  MURS.forEach(m=> lignes.push("- "+m.titre+" : "+(estFaite(m.id)?m.fait:m.attente)));
+  lignes.push("");
+  const toutes = toutesActivites().map(activiteResolue);
+  RUBRIQUES.forEach(r=>{
+    const l = toutes.filter(a=>a.r===r.id);
+    lignes.push(r.titre.toUpperCase()+" : "+l.filter(a=>estFaite(a.id)).length+" / "+l.length);
+    l.filter(a=>!estFaite(a.id)).slice(0,5).forEach(a=> lignes.push("   . "+a.t+(a.d?" ("+dateFr(a.d)+")":"")+(a.resp?" · "+a.resp:"")));
+    lignes.push("");
+  });
+  const retard = toutes.filter(a=>!estFaite(a.id) && a.d && joursAvant(a.d)<0);
+  if(retard.length){
+    lignes.push("EN RETARD");
+    retard.forEach(a=> lignes.push("- "+a.t+" ("+dateFr(a.d)+")"+(a.resp?" · "+a.resp:"")));
+    lignes.push("");
+  }
+  const v = lire("num:vises"), cf = lire("num:confirmes"), bg = lire("num:badges");
+  if(v||cf||bg) lignes.push("JAUGE : "+(v||0)+" invitations, "+(cf||0)+" confirmations, "+(bg||0)+" accès sécurisés.");
+  return lignes.join("\n");
+}
+document.getElementById("btn-export").addEventListener("click", ()=>{
+  const blob = new Blob([JSON.stringify(etat,null,2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "unga81-etat-"+aujourdhuiISO()+".json"; a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById("btn-vider").addEventListener("click", ()=>{
+  if(!confirm("Effacer l'état enregistré sur cet appareil ? Si la mémoire partagée est connectée, l'état sera relu au prochain rafraîchissement.")) return;
+  if(!confirm("Confirmer l'effacement.")) return;
+  localStorage.removeItem(CLE); location.reload();
+});
+function lancerHorloge(){ clearInterval(horlogeSync); if(etat.endpoint) horlogeSync = setInterval(()=> relire(true), 20000); }
+document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) relire(true); });
+
+charger();
+document.getElementById("mon-nom").value = etat.moi.nom || "";
+document.getElementById("ma-fonction").value = etat.moi.fonction || "";
+document.getElementById("adresse-sync").value = etat.endpoint || "";
+etatSync("", etat.endpoint ? "Mémoire partagée configurée. Lecture toutes les vingt secondes." : "Mémoire locale : les coches restent sur cet appareil.");
+rendre(); lancerHorloge();
+if(etat.endpoint) relire(true);
+if(aujourdhuiISO() === JOUR_J) onglet("jourj");
+</script>
+</body>
+</html>
