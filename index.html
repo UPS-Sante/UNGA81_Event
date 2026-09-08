@@ -215,11 +215,54 @@ dialog .pied{display:flex;gap:8px;justify-content:flex-end;padding:0 18px 18px;f
 @media (prefers-reduced-motion:no-preference){#toast{animation:monte .18s ease-out}}
 @keyframes monte{from{transform:translate(-50%,10px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
 
+.synthese{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;padding:12px 15px}
+.kpi b{display:block;font-family:var(--serif);font-size:30px;line-height:1;color:var(--encre)}
+.kpi.alerte-kpi b{color:var(--rouge)}
+.kpi span{font-size:13px;color:var(--gris)}
+.barre{height:6px;background:var(--trait);border-radius:3px;overflow:hidden;margin:14px 0 20px}
+.barre i{display:block;height:100%;background:var(--or)}
+
+.cadre-route{background:var(--blanc);border:1px solid var(--trait);border-radius:2px;overflow-x:auto;overflow-y:hidden}
+.route{display:grid;min-width:max-content;font-size:13px}
+.route .tete,.route .cel{border-bottom:1px solid #EEF0F6;border-right:1px solid #F2F4F9}
+.route .lib{position:sticky;left:0;z-index:2;background:var(--blanc);border-right:1px solid var(--trait);padding:8px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.route .lib b{font-weight:600;color:var(--encre);font-size:13.5px;line-height:1.25}
+.route .lib span{color:var(--gris);font-size:12px;font-variant-numeric:tabular-nums}
+.route .lib.cliquable{cursor:pointer}
+.route .lib.cliquable:hover b{text-decoration:underline}
+.route .tete{background:#fbfcfe;text-align:center;padding:6px 0 5px;color:var(--gris);font-variant-numeric:tabular-nums;line-height:1.15}
+.route .tete b{display:block;color:var(--encre);font-size:13px;font-weight:600}
+.route .tete em{font-style:normal;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em}
+.route .tete.jourj{background:var(--or)}
+.route .tete.jourj b,.route .tete.jourj em{color:var(--encre)}
+.route .lundi{border-left:1px solid var(--trait)}
+.route .colj{background:#fffdf3}
+.route .cel{display:flex;align-items:center;justify-content:center;min-height:36px;padding:2px}
+.route .cel .pt{width:5px;height:5px;border-radius:50%;background:#E4E7EF}
+.route .cel button{width:24px;height:24px;border:0;border-radius:3px;cursor:pointer;font-size:12px;font-weight:600;color:#fff;line-height:1;padding:0}
+.route .cel button:focus-visible{outline:2px solid var(--encre);outline-offset:2px}
+.route .cel button.attente{background:var(--or);color:var(--encre)}
+.route .cel button.retard{background:var(--rouge)}
+.route .cel button.fait{background:var(--vert)}
+.route .jalon-pt.ok{background:var(--vert);border-color:var(--vert)}
+.route .jalon-ligne{background:#fbfcfe}
+.route .jalon-pt{width:14px;height:14px;transform:rotate(45deg);border:2.5px solid var(--rouge);background:#fdeaee;cursor:pointer;box-shadow:0 0 0 2px #fbfcfe}
+.route .cel.serre{gap:5px}
+.route .cel.serre .jalon-pt{width:11px;height:11px}
+.route .jalon-pt.ok{border-color:var(--vert);background:var(--vert)}
+.legende{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:13px;color:var(--gris);align-items:center}
+.legende i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legende .l-att{background:var(--or)}.legende .l-ret{background:var(--rouge)}.legende .l-fait{background:var(--vert)}
+.legende .l-jal{border:2px solid var(--rouge);transform:rotate(45deg);width:9px;height:9px}
+
 @media print{
   .onglets,.ajout,.crayon,.filtres,#toast,footer,.actions{display:none !important}
   section[hidden]{display:block !important}
   body{background:#fff;font-size:12px}
   .rubrique,.liste,.deroule,.bloc{break-inside:avoid;border-color:#999}
+  .cadre-route{overflow:visible}
+  .route{font-size:10px}
   h2{page-break-after:avoid}
 }
 </style>
@@ -286,13 +329,24 @@ dialog .pied{display:flex;gap:8px;justify-content:flex-end;padding:0 18px 18px;f
   <p class="intro">Cinq décisions bloquent le reste : l'impression, le plan de salle, le protocole, le montage vidéo et la composition même de la tribune en dépendent. Touchez une carte quand la décision est prise.</p>
   <div class="murs" id="murs"></div>
 
-  <h2>Les trois prochaines actions</h2>
-  <p class="intro">Calculées sur les échéances non tenues et les plus proches. Si cette liste ne bouge pas d'un jour à l'autre, la préparation est à l'arrêt.</p>
-  <div class="trois" id="trois"></div>
+  <h2>La feuille de route</h2>
+  <p class="intro">Construite sur les échéances réelles du dispositif. Elle se recalcule à chaque case cochée, à chaque date changée et à chaque activité ajoutée. Un carré porte le nombre d'activités dues ce jour-là pour cette rubrique ; touchez-le pour les ouvrir et les cocher sans quitter la page. Les losanges sont les cinq murs.</p>
+  <div class="synthese" id="synthese"></div>
+  <div class="barre"><i id="barre-globale" style="width:0%"></i></div>
+  <div class="cadre-route"><div class="route" id="route"></div></div>
+  <div class="legende">
+    <span><i class="l-att"></i>à venir</span>
+    <span><i class="l-ret"></i>échéance dépassée</span>
+    <span><i class="l-fait"></i>fait</span>
+    <span><i class="l-jal"></i>mur</span>
+    <span>Touchez le nom d'une rubrique pour n'afficher qu'elle dans le dispositif.</span>
+  </div>
 
-  <h2>Ce qui doit tomber, et quand</h2>
-  <p class="intro">Du jour où vous lisez ceci jusqu'à la semaine qui suit l'événement, recalé sur le 23 septembre.</p>
-  <div class="chrono" id="chrono"></div>
+  <h2>En retard</h2>
+  <div class="trois" id="route-retard"></div>
+
+  <h2>Les sept prochains jours</h2>
+  <div class="trois" id="route-semaine"></div>
 
   <h2>Le dispositif</h2>
   <p class="intro">Sept rubriques. Touchez une ligne pour la marquer faite : toute l'équipe le voit. Le crayon à droite permet de changer l'intitulé, l'échéance ou le responsable. Les responsables sont désignés par leur fonction, pour rester valables quels que soient les changements de personnes.</p>
@@ -464,6 +518,12 @@ function doPost(e){
   <span>La foi en action · New York, 23 septembre 2026</span>
 </div></footer>
 
+<dialog id="dlg-jour">
+  <div class="tete"><h3 id="jour-titre">Activités du jour</h3><p style="margin:0;color:var(--gris);font-size:14px" id="jour-soustitre"></p></div>
+  <div class="contenu" style="padding:0 0 4px"><div id="jour-liste"></div></div>
+  <div class="pied"><button class="bouton" id="jour-fermer">Fermer</button></div>
+</dialog>
+
 <dialog id="dlg-qui">
   <div class="tete"><h3>Qui porte cette activité ?</h3><p style="margin:0;color:var(--gris);font-size:14px" id="qui-activite"></p></div>
   <div class="contenu">
@@ -525,34 +585,11 @@ function doPost(e){
 const JOUR_J = "2026-09-23";
 
 const MURS = [
-  { id:"mur-salle", titre:"La salle", detail:"Créneau du 23 septembre demandé par la Mission permanente aux services de conférence, et confirmé par écrit. Sans confirmation, ni carton, ni impression, ni plan de salle.", attente:"Non confirmée", fait:"Confirmée par écrit" },
-  { id:"mur-acces", titre:"L'accès des invités", detail:"Enregistrement de la délégation sur e-deleGATE, badges des panélistes non gouvernementaux, cartes d'accès secondaires ou tickets de réunion. Sans badge, un invité ne franchit pas la grille.", attente:"Non traité", fait:"Tous les entrants ont une voie d'accès" },
-  { id:"mur-deplacement", titre:"Le déplacement", detail:"Visas américains, billets, hébergement et transferts pour la délégation et les intervenants venus de N'Djamena. Le poste le plus long, et le grand absent du dossier maître.", attente:"Non engagé", fait:"Délégation en route" },
-  { id:"mur-ministre", titre:"La participation du Ministre", detail:"Sa confirmation déclenche le protocole, la sécurité, l'ordre de préséance et les passes VIP.", attente:"À confirmer", fait:"Confirmée" },
-  { id:"mur-video", titre:"Le master vidéo", detail:"1 min 30, chemin critique le plus long. Tout retard sur les tournages se répercute sur le montage et le test en salle.", attente:"Prestataire non mandaté", fait:"Master livré" }
-];
-
-const CHRONO = [
-  { debut:"2026-09-07", quand:"Lundi 7 septembre", note:"J−16",
-    faits:["Saisir les services de conférence pour le créneau du 23 septembre","Confirmer la participation du Ministre","Arrêter la liste nominative de la délégation et lancer les visas","Mandater le prestataire audiovisuel"] },
-  { debut:"2026-09-08", fin:"2026-09-09", quand:"8 et 9 septembre", note:"J−15 · J−14",
-    faits:["Récupérer la note d'information aux délégations et la date butoir d'enregistrement de l'UNGA 81","Ouvrir l'enregistrement e-deleGATE de la délégation","Recenser qui, parmi les invités, détient déjà un badge des Nations Unies","Relayer les notes verbales aux États et institutions"] },
-  { debut:"2026-09-10", fin:"2026-09-13", quand:"10 au 13 septembre", note:"J−13 · J−10",
-    faits:["Repérages, autorisations et consentements de tournage","Tournage terrain à N'Djamena et dans une province","Courriels aux bailleurs, aux panélistes et aux co-hôtes","Mise en ligne du site et vérification du QR code avant impression"] },
-  { debut:"2026-09-14", fin:"2026-09-15", quand:"14 et 15 septembre", note:"J−9 · J−8",
-    faits:["Clôture de l'enregistrement de la délégation, sauf date officielle plus tardive","Interviews des autorités et interview à distance de la Directrice Exécutive de l'UNFPA","Fiches panélistes complètes et suppléants désignés","Rendez-vous bilatéraux calés avec les bailleurs"] },
-  { debut:"2026-09-16", fin:"2026-09-18", quand:"16 au 18 septembre", note:"J−7 · J−5",
-    faits:["Montage V1 de la vidéo","Conducteur minute par minute, dans la version 1 h 30 et dans la version 1 h 15","Impression des supports et acheminement à New York","Deux annonces d'engagement pré-négociées et confirmées"] },
-  { debut:"2026-09-19", fin:"2026-09-20", quand:"19 et 20 septembre", note:"J−4 · J−3",
-    faits:["Master vidéo et sous-titres FR / EN / AR","Relance téléphonique de tous les confirmés","Vérification badge par badge, tribune puis délégation","Départ de la délégation"] },
-  { debut:"2026-09-21", quand:"Lundi 21 septembre", note:"J−2",
-    faits:["Briefing des intervenants sur place","Porte-noms, ordre de préséance et placement","Répétition de la modération et questions de relance"] },
-  { debut:"2026-09-22", quand:"Mardi 22 septembre", note:"J−1",
-    faits:["Repérage de la salle et test de projection sur le matériel de la salle","Installation des kakémonos","Répétition générale et liste de contrôle technique","Communiqué sous embargo prêt à partir"] },
-  { debut:"2026-09-23", quand:"Mercredi 23 septembre", note:"Jour J",
-    faits:["Accueil VVIP et déroulé selon le conducteur","Captation photo et vidéo, demande de diffusion sur UN WebTV","Fiches d'engagement remplies en salle","Photos de famille et point presse"] },
-  { debut:"2026-09-24", fin:"2026-09-30", quand:"24 au 30 septembre", note:"J+1 · J+7",
-    faits:["Communiqué, album et vidéo courte","Note de synthèse et tableau des engagements","Lettres de remerciement portant rappel de l'engagement annoncé","Premières relances des bilatérales"] }
+  { id:"mur-salle", d:"2026-09-09", titre:"La salle", detail:"Créneau du 23 septembre demandé par la Mission permanente aux services de conférence, et confirmé par écrit. Sans confirmation, ni carton, ni impression, ni plan de salle.", attente:"Non confirmée", fait:"Confirmée par écrit" },
+  { id:"mur-acces", d:"2026-09-11", titre:"L'accès des invités", detail:"Enregistrement de la délégation sur e-deleGATE, badges des panélistes non gouvernementaux, cartes d'accès secondaires ou tickets de réunion. Sans badge, un invité ne franchit pas la grille.", attente:"Non traité", fait:"Tous les entrants ont une voie d'accès" },
+  { id:"mur-deplacement", d:"2026-09-11", titre:"Le déplacement", detail:"Visas américains, billets, hébergement et transferts pour la délégation et les intervenants venus de N'Djamena. Le poste le plus long, et le grand absent du dossier maître.", attente:"Non engagé", fait:"Délégation en route" },
+  { id:"mur-ministre", d:"2026-09-07", titre:"La participation du Ministre", detail:"Sa confirmation déclenche le protocole, la sécurité, l'ordre de préséance et les passes VIP.", attente:"À confirmer", fait:"Confirmée" },
+  { id:"mur-video", d:"2026-09-20", titre:"Le master vidéo", detail:"1 min 30, chemin critique le plus long. Tout retard sur les tournages se répercute sur le montage et le test en salle.", attente:"Prestataire non mandaté", fait:"Master livré" }
 ];
 
 const RUBRIQUES = [
@@ -585,6 +622,7 @@ const ACTIVITES = [
   {id:"de4", r:"delegation", t:"Réserver l'hébergement à New York et organiser les transferts", d:"2026-09-11", resp:"DSR"},
   {id:"de5", r:"delegation", t:"Établir les ordres de mission et régler les frais de séjour", d:"2026-09-14", resp:"Cabinet du Ministre"},
   {id:"de6", r:"delegation", t:"Prévoir un plan de repli par intervention à distance pour tout intervenant dont le visa n'est pas délivré à J−5", d:"2026-09-18", resp:"Comité d'organisation"},
+  {id:"de8", r:"delegation", t:"Départ de la délégation de N'Djaména, arrivée à New York au plus tard le 21 septembre", d:"2026-09-20", resp:"DSR"},
   {id:"de7", r:"delegation", t:"Briefer la délégation sur les accès, les horaires de sécurité et les zones réservées du Siège", d:"2026-09-21", resp:"Mission permanente"},
 
   {id:"pa1", r:"panel", t:"Confirmer la participation du Ministre de la Santé Publique et de la Prévention", d:"2026-09-07", resp:"Cabinet du Ministre"},
@@ -816,6 +854,7 @@ let pileAnnulation = [];
 let dernierMessage = null;
 let horlogeSync = null;
 let filtre = "tout";
+let filtreRubrique = "";
 
 function charger(){
   try{ const brut = localStorage.getItem(CLE); if(brut){ etat = Object.assign(etat, JSON.parse(brut)); } }catch(e){}
@@ -944,7 +983,7 @@ function passeFiltre(a){
    Rendu
    ========================================================== */
 function rendre(){
-  rendreCompte(); rendreMurs(); rendreTrois(); rendreChrono(); rendreDispositif(); rendreRisques();
+  rendreCompte(); rendreMurs(); rendreRoute(); rendreDispositif(); rendreRisques();
   rendreDeroule();
   rendreSimple("regie", REGIE, "Avant l'ouverture des portes");
   rendreSimple("recolte", RECOLTE, "Pendant et juste après la séance");
@@ -976,25 +1015,133 @@ function rendreMurs(){
     c.appendChild(b);
   });
 }
-function rendreTrois(){
-  const c = document.getElementById("trois"); c.innerHTML = "";
-  const restantes = toutesActivites().map(activiteResolue)
-    .filter(a=>!estFaite(a.id) && a.d)
-    .sort((x,y)=> x.d < y.d ? -1 : (x.d > y.d ? 1 : 0)).slice(0,3);
-  if(!restantes.length){ c.innerHTML = "<div class='vide'>Aucune échéance ouverte. Vérifiez que le dispositif est bien à jour.</div>"; return; }
-  restantes.forEach(a=> c.appendChild(ligneActivite(a)));
+const LIGNES_ROUTE = RUBRIQUES.concat([{ id:"apres", titre:"Après l'événement", porteur:"Comité d'organisation" }]);
+const JOURS = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+const MOIS_COURT = ["janv.","févr.","mars","avril","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+
+function tachesRoute(){
+  const dispositif = toutesActivites().map(activiteResolue);
+  const apres = APRES.map(x=> activiteResolue({ id:x.id, r:"apres", t:x.t, d:x.d||"", resp:x.resp }));
+  return dispositif.concat(apres);
 }
-function rendreChrono(){
-  const c = document.getElementById("chrono"), auj = aujourdhuiISO(); c.innerHTML = "";
-  CHRONO.forEach(p=>{
-    const fin = p.fin || p.debut;
-    let cls = "jalon";
-    if(fin < auj) cls += " passe"; else if(p.debut <= auj && auj <= fin) cls += " aujourdhui";
-    const d = document.createElement("div"); d.className = cls;
-    d.innerHTML = "<div class='quand'>"+echapper(p.quand)+"<em>"+echapper(p.note)+"</em></div><ul>"+p.faits.map(f=>"<li>"+echapper(f)+"</li>").join("")+"</ul>";
-    c.appendChild(d);
+function etatTache(a){
+  if(estFaite(a.id)) return "fait";
+  if(a.d && joursAvant(a.d) < 0) return "retard";
+  return "attente";
+}
+function libelleJour(iso){
+  const d = new Date(iso+"T00:00:00");
+  return JOURS[d.getDay()] + " " + d.getDate() + " " + MOIS_COURT[d.getMonth()];
+}
+function estLundi(iso){ return new Date(iso+"T00:00:00").getDay() === 1; }
+
+function rendreRoute(){
+  const taches = tachesRoute().filter(a=>a.d);
+  const dates = Array.from(new Set(taches.map(a=>a.d).concat(MURS.filter(m=>m.d).map(m=>m.d)).concat([JOUR_J]))).sort();
+
+  const total = taches.length;
+  const faites = taches.filter(a=>estFaite(a.id)).length;
+  const retard = taches.filter(a=>etatTache(a)==="retard");
+  const semaine = taches.filter(a=>etatTache(a)!=="fait" && a.d && joursAvant(a.d)>=0 && joursAvant(a.d)<=7);
+  const murs = MURS.filter(m=>estFaite(m.id)).length;
+
+  const syn = document.getElementById("synthese");
+  syn.innerHTML =
+    kpi(faites+" / "+total, "activités datées faites") +
+    kpi(retard.length, "échéances dépassées", retard.length>0) +
+    kpi(semaine.length, "à tenir sous sept jours") +
+    kpi(murs+" / "+MURS.length, "murs levés", murs<MURS.length);
+  document.getElementById("barre-globale").style.width = (total ? Math.round(faites*100/total) : 0) + "%";
+
+  const g = document.getElementById("route");
+  g.innerHTML = "";
+  g.style.gridTemplateColumns = "190px repeat(" + dates.length + ", 30px)";
+
+  g.appendChild(cellule("lib tete", ""));
+  let moisPrecedent = null;
+  dates.forEach(d=>{
+    const jj = (d === JOUR_J);
+    const el = cellule("tete" + (estLundi(d)?" lundi":"") + (jj?" jourj":""), "");
+    const n = new Date(d+"T00:00:00");
+    const changeMois = (n.getMonth() !== moisPrecedent);
+    moisPrecedent = n.getMonth();
+    el.innerHTML = "<b>"+n.getDate()+"</b><em>"+(changeMois ? MOIS_COURT[n.getMonth()].slice(0,4) : "")+"</em>";
+    el.title = libelleJour(d) + (jj ? " · jour de l'événement" : "");
+    g.appendChild(el);
   });
+
+  const libJalons = cellule("lib jalon-ligne","");
+  libJalons.innerHTML = "<b>Les murs</b><span>"+murs+" / "+MURS.length+" levés</span>";
+  g.appendChild(libJalons);
+  dates.forEach(d=>{
+    const c = cellule("cel jalon-ligne" + (estLundi(d)?" lundi":"") + (d===JOUR_J?" colj":""), "");
+    const ici = MURS.filter(m=>m.d===d);
+    if(ici.length){
+      if(ici.length>1) c.classList.add("serre");
+      ici.forEach(m=>{
+        const fait = estFaite(m.id);
+        const b = document.createElement("button");
+        b.className = "jalon-pt" + (fait?" ok":"");
+        b.title = m.titre + " · " + (fait ? m.fait : m.attente) + " · " + libelleJour(d);
+        b.setAttribute("aria-label", b.title);
+        b.addEventListener("click", ()=> ecrire("check:"+m.id, fait?"0":"1", (fait?"Mur rouvert : ":"Mur levé : ")+m.titre));
+        c.appendChild(b);
+      });
+    } else { c.innerHTML = "<span class='pt'></span>"; }
+    g.appendChild(c);
+  });
+
+  LIGNES_ROUTE.forEach(r=>{
+    const liste = taches.filter(a=>a.r===r.id);
+    const lib = cellule("lib cliquable","");
+    lib.innerHTML = "<b>"+echapper(r.titre)+"</b><span>"+liste.filter(a=>estFaite(a.id)).length+" / "+liste.length+"</span>";
+    lib.title = "N'afficher que cette rubrique dans le dispositif";
+    lib.addEventListener("click", ()=> filtrerRubrique(r.id));
+    g.appendChild(lib);
+    dates.forEach(d=>{
+      const c = cellule("cel" + (estLundi(d)?" lundi":"") + (d===JOUR_J?" colj":""), "");
+      const ici = liste.filter(a=>a.d===d);
+      if(ici.length){
+        const etats = ici.map(etatTache);
+        const cls = etats.indexOf("retard")>=0 ? "retard" : (etats.every(e=>e==="fait") ? "fait" : "attente");
+        const b = document.createElement("button");
+        b.className = cls; b.textContent = ici.length;
+        b.title = ici.length + (ici.length>1 ? " activités dues " : " activité due ") + libelleJour(d) + " · " + r.titre;
+        b.setAttribute("aria-label", b.title);
+        b.addEventListener("click", ()=> ouvrirJour(r, d, ici));
+        c.appendChild(b);
+      } else { c.innerHTML = "<span class='pt'></span>"; }
+      g.appendChild(c);
+    });
+  });
+
+  liste_courte("route-retard", retard.sort((a,b)=> a.d<b.d?-1:1), "Aucune échéance dépassée.");
+  liste_courte("route-semaine", semaine.sort((a,b)=> a.d<b.d?-1:1), "Rien à tenir dans les sept prochains jours.");
 }
+function kpi(valeur, texte, alerte){
+  return "<div class='kpi"+(alerte?" alerte-kpi":"")+"'><b>"+echapper(valeur)+"</b><span>"+echapper(texte)+"</span></div>";
+}
+function cellule(cls, html){ const d = document.createElement("div"); d.className = cls; d.innerHTML = html; return d; }
+function liste_courte(cible, source, vide){
+  const c = document.getElementById(cible); c.innerHTML = "";
+  if(!source.length){ c.innerHTML = "<div class='vide'>"+echapper(vide)+"</div>"; return; }
+  source.forEach(a=> c.appendChild(ligneActivite(a)));
+}
+function ouvrirJour(rubrique, date, taches){
+  document.getElementById("jour-titre").textContent = rubrique.titre;
+  document.getElementById("jour-soustitre").textContent = "Échéance du " + libelleJour(date);
+  const c = document.getElementById("jour-liste"); c.innerHTML = "";
+  taches.forEach(a=> c.appendChild(ligneActivite(a)));
+  document.getElementById("dlg-jour").showModal();
+}
+function filtrerRubrique(id){
+  filtreRubrique = (filtreRubrique === id) ? "" : id;
+  rendreDispositif();
+  const cible = document.getElementById("dispositif");
+  if(cible) cible.scrollIntoView({behavior:"smooth", block:"start"});
+  message(filtreRubrique ? "Dispositif filtré sur une rubrique. Touchez de nouveau son nom pour tout réafficher." : "Toutes les rubriques réaffichées.", true);
+}
+
 function ligneActivite(a){
   const fait = estFaite(a.id);
   const el = document.createElement("div");
@@ -1025,7 +1172,7 @@ function ligneActivite(a){
 function rendreDispositif(){
   const c = document.getElementById("dispositif"); c.innerHTML = "";
   const toutes = toutesActivites().map(activiteResolue);
-  RUBRIQUES.forEach(r=>{
+  RUBRIQUES.filter(r=> !filtreRubrique || r.id===filtreRubrique).forEach(r=>{
     const liste = toutes.filter(a=>a.r===r.id);
     const visibles = liste.filter(passeFiltre);
     const faites = liste.filter(a=>estFaite(a.id)).length;
@@ -1230,7 +1377,7 @@ ONGLETS.forEach(n=> document.getElementById("t-"+n).addEventListener("click", ()
 
 document.querySelectorAll("#filtres button").forEach(b=>{
   b.addEventListener("click", ()=>{
-    filtre = b.dataset.f;
+    filtre = b.dataset.f; filtreRubrique = "";
     document.querySelectorAll("#filtres button").forEach(x=> x.setAttribute("aria-pressed", x===b ? "true":"false"));
     rendreDispositif();
   });
@@ -1241,6 +1388,7 @@ document.getElementById("btn-annuler").addEventListener("click", annuler);
 document.addEventListener("keydown", e=>{
   if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="z"){ e.preventDefault(); annuler(); }
 });
+document.getElementById("jour-fermer").addEventListener("click", ()=> document.getElementById("dlg-jour").close());
 document.getElementById("qui-fermer").addEventListener("click", ()=> document.getElementById("dlg-qui").close());
 document.getElementById("qui-retirer").addEventListener("click", ()=>{
   if(activiteCourante) ecrire("resp:"+activiteCourante.id, "", "Responsable retiré : "+activiteCourante.t);
@@ -1327,8 +1475,11 @@ function pointDeSituation(){
   lignes.push("LA FOI EN ACTION, point de situation au " + new Date().toLocaleDateString("fr-FR"));
   lignes.push("Événement parallèle UNGA 81, mardi 23 septembre 2026, 13 h 15 à 14 h 45 (New York). " + (j>0?"J−"+j:(j===0?"Jour J":"J+"+Math.abs(j))));
   lignes.push("");
+  const tr = tachesRoute().filter(a=>a.d);
+  lignes.push("AVANCEMENT : "+tr.filter(a=>estFaite(a.id)).length+" / "+tr.length+" activités datées, "+tr.filter(a=>etatTache(a)==="retard").length+" échéance(s) dépassée(s).");
+  lignes.push("");
   lignes.push("LES CINQ MURS");
-  MURS.forEach(m=> lignes.push("- "+m.titre+" : "+(estFaite(m.id)?m.fait:m.attente)));
+  MURS.forEach(m=> lignes.push("- "+m.titre+" : "+(estFaite(m.id)?m.fait:m.attente)+(m.d?" (cible : "+dateFr(m.d)+")":"")));
   lignes.push("");
   const toutes = toutesActivites().map(activiteResolue);
   RUBRIQUES.forEach(r=>{
